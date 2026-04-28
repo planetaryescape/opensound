@@ -7,9 +7,14 @@
 </svelte:head>
 
 <script lang="ts">
+	import { dev } from '$app/environment';
+
+	const spotifyDocsUrl = 'http://localhost:4321';
+	const spotifyProductionUrl = 'https://spotify.opensound.dev';
+
 	const links = {
 		github: 'https://github.com/guidefari/opensound',
-		product: 'https://spotify.opensound.dev'
+		product: dev ? spotifyDocsUrl : spotifyProductionUrl
 	};
 </script>
 

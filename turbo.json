@@ -24,6 +24,17 @@
         "!tsconfig.tsbuildinfo"
       ]
     },
+    "check": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.turbo/**",
+        "!dist/**",
+        "!.svelte-kit/**",
+        "!node_modules/.vite/**",
+        "!tsconfig.tsbuildinfo"
+      ]
+    },
     "test": {
       "dependsOn": ["^build"],
       "inputs": [
@@ -45,6 +56,11 @@
         "!node_modules/.vite/**",
         "!tsconfig.tsbuildinfo"
       ],
+      "cache": false,
+      "persistent": true
+    },
+    "preview": {
+      "dependsOn": ["build"],
       "cache": false,
       "persistent": true
     }
