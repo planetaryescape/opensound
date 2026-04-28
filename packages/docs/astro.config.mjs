@@ -11,8 +11,12 @@ export default defineConfig({
       description: "Effect-native Spotify Web API client",
       disable404Route: true,
       head: [],
+      customCss: ["./src/styles/theme.css"],
       social: {
         github: "https://github.com/guidefari/spotify-effect",
+      },
+      components: {
+        SiteTitle: "./src/components/SiteTitle.astro",
       },
       plugins: [
         starlightTypeDoc({

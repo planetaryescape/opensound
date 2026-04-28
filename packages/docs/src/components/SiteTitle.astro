@@ -1,0 +1,51 @@
+---
+import config from "virtual:starlight/user-config";
+
+const title =
+  typeof config.title === "string" ? config.title : (Object.values(config.title)[0] ?? "");
+
+const opensoundUrl = import.meta.env.DEV ? "http://localhost:4177" : "https://opensound.dev";
+---
+
+<a href="/" class="site-title sl-flex">
+  <span class="title">{title}</span>
+</a>
+<a href={opensoundUrl} class="back-link" rel="noopener">
+  <span class="arrow">←</span>
+  <span>opensound</span>
+</a>
+
+<style>
+  .site-title {
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: 1rem;
+    padding: 0.25rem 0.6rem;
+    border: 2px solid var(--sl-color-accent);
+    color: var(--sl-color-accent);
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition: transform 0.15s;
+  }
+  .back-link:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--sl-shadow-sm);
+  }
+  .arrow {
+    font-family: var(--sl-font-mono);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .back-link:hover {
+      transform: none;
+    }
+  }
+</style>

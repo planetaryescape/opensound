@@ -1,5 +1,5 @@
 {
-  "name": "spotify-effect-monorepo",
+  "name": "opensound",
   "private": true,
   "workspaces": [
     "packages/*",

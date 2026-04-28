@@ -1,6 +1,6 @@
-# spotify-effect
+# opensound
 
-A TypeScript SDK for the Spotify Web API built with [Effect](https://effect.website/) — a functional, type-safe approach to handling async operations, errors, and observability.
+A monorepo for open source music tooling, with the Spotify Web API SDK as one product in the `spotify-effect` family.
 
 ## What is this?
 

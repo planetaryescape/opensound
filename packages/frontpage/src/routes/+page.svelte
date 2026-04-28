@@ -48,7 +48,7 @@
 					href={links.product}>open spotify-effect →</a
 				>
 				<span
-					class="border-sky/40 text-sky/60 inline-block cursor-not-allowed border-2 border-dashed px-5 py-3 text-sm lowercase select-none"
+					class="border-sand/50 text-sand/70 inline-block cursor-not-allowed border-2 border-dashed px-5 py-3 text-sm lowercase select-none"
 					aria-disabled="true">tidal-effect — brewing</span
 				>
 			</div>

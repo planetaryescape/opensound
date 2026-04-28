@@ -34,7 +34,7 @@ SPOTIFY_EFFECT_TRACE=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:14318 bun ru
 Then open the printed local URL.
 
 If you want to verify Jaeger wiring before touching Spotify auth, click `Ping traced server` in the UI.
-That should emit a trace for the `spotify-effect-example-browser` service immediately.
+That should emit a trace for the `opensound-example-browser` service immediately.
 
 For background on PKCE and Spotify's browser-safe auth flow, see `docs/auth/pkce.md`.
 For tracing and collector notes, see `docs/tracing/otel.md`.
