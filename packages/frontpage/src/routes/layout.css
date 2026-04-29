@@ -9,6 +9,7 @@
   --color-sky: #89bbfe;
   --tracking-terminal: 0.2em;
   --leading-display: 1.05;
+  --radius-ui: 0;
   --shadow-sky-offset: 4px 4px 0 0 #89bbfe;
   --shadow-sand-offset: 4px 4px 0 0 #f2cc8f;
   --animate-blink: blink 1.1s steps(1) infinite;

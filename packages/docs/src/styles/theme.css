@@ -35,6 +35,7 @@
   --sl-shadow-sm: 4px 4px 0 0 rgba(137, 187, 254, 0.18);
   --sl-shadow-md: 4px 4px 0 0 rgba(137, 187, 254, 0.22);
   --sl-shadow-lg: 8px 8px 0 0 rgba(137, 187, 254, 0.18);
+  --radius-ui: 0;
 
   --sl-line-height: 1.75;
   --sl-line-height-headings: 1.05;
@@ -78,6 +79,7 @@
   --sl-shadow-sm: 4px 4px 0 0 rgba(61, 64, 91, 0.08);
   --sl-shadow-md: 4px 4px 0 0 rgba(61, 64, 91, 0.12);
   --sl-shadow-lg: 8px 8px 0 0 rgba(61, 64, 91, 0.08);
+  --radius-ui: 0;
 }
 
 :root {
@@ -99,8 +101,9 @@ body {
 .sl-link-button,
 .expressive-code,
 starlight-tabs,
-.tablist-wrapper {
-  border-radius: 0;
+.tablist-wrapper,
+.back-link {
+  border-radius: var(--radius-ui);
 }
 
 .card {
@@ -129,7 +132,7 @@ starlight-tabs,
 .pagination-links a,
 .sidebar a,
 .right-sidebar a {
-  border-radius: 0;
+  border-radius: var(--radius-ui);
 }
 
 @media (prefers-reduced-motion: reduce) {

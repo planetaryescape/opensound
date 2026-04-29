@@ -21,7 +21,7 @@
 <div
 	class="bg-obsidian text-sand flex min-h-screen items-center justify-center px-4 py-10 font-mono [font-synthesis:none] [-webkit-font-smoothing:antialiased] sm:px-6"
 >
-	<section class="border-sand/30 flex w-full max-w-3xl flex-col gap-3 border-2 p-6 md:p-8">
+	<section class="border-sand/30 flex w-full max-w-3xl flex-col gap-3 rounded-(--radius-ui) border-2 p-6 md:p-8">
 		<div class="border-sand/20 flex items-center gap-2 border-b pb-3 text-xs">
 			<span class="bg-sand/40 inline-block h-2 w-2 rounded-full"></span>
 			<span class="bg-sand/40 inline-block h-2 w-2 rounded-full"></span>
@@ -44,11 +44,11 @@
 			<div class="mt-3"><span class="text-sky">$</span> ls libraries/</div>
 			<div class="mt-1 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
 				<a
-					class="border-sand bg-sand text-obsidian hover:shadow-sky-offset inline-block border-2 px-5 py-3 text-sm lowercase transition hover:-translate-x-0.5 hover:-translate-y-0.5"
+					class="border-sand bg-sand text-obsidian hover:shadow-sky-offset inline-block rounded-[var(--radius-ui)] border-2 px-5 py-3 text-sm lowercase transition hover:-translate-x-0.5 hover:-translate-y-0.5"
 					href={links.product}>open spotify-effect →</a
 				>
 				<span
-					class="border-sand/50 text-sand/70 inline-block cursor-not-allowed border-2 border-dashed px-5 py-3 text-sm lowercase select-none"
+					class="border-sand/50 text-sand/70 inline-block cursor-not-allowed rounded-[var(--radius-ui)] border-2 border-dashed px-5 py-3 text-sm lowercase select-none"
 					aria-disabled="true">tidal-effect — brewing</span
 				>
 			</div>
