@@ -1,12 +1,7 @@
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
-import type {
-  Category,
-  Paging,
-  SimplifiedAlbum,
-  SimplifiedPlaylist,
-} from "../model/SpotifyObjects";
+import type { Category } from "../model/SpotifyObjects";
 import { CategorySchema } from "../model/SpotifyObjectSchemas";
 import type {
   GetCategoriesOptions,

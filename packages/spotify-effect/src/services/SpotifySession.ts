@@ -3,7 +3,6 @@ import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as SynchronizedRef from "effect/SynchronizedRef";
 import { ServiceMap } from "effect";
-import type { HttpClient } from "effect/unstable/http";
 import { SpotifyConfigurationError, type SpotifyRequestError } from "../errors/SpotifyError";
 import type {
   GetRefreshableUserTokensResponse,

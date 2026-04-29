@@ -6,7 +6,6 @@ import { ServiceMap } from "effect";
 import { HttpClient, HttpClientRequest, type HttpClientResponse } from "effect/unstable/http";
 import {
   SpotifyConfigurationError,
-  SpotifyHttpError,
   SpotifyParseError,
   SpotifyRateLimitError,
   isRetryableError,
@@ -24,8 +23,6 @@ const spotifyApiBaseUrl = "https://api.spotify.com/v1";
 type QueryValue = string | number | boolean | ReadonlyArray<string | number | boolean> | undefined;
 type SyncDecodableSchema = Schema.Top & { readonly DecodingServices: never };
 type DecodableSchema<A> = Schema.Top & { readonly Type: A };
-type SpotifyAuthService = ServiceMap.Service.Shape<typeof SpotifyAuth>;
-type SpotifySessionService = ServiceMap.Service.Shape<typeof SpotifySession>;
 
 export type { SpotifyRetryConfig };
 

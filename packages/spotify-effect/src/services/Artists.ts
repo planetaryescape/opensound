@@ -1,7 +1,7 @@
 import { ServiceMap } from "effect";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
-import type { Artist, Paging, SimplifiedAlbum, Track } from "../model/SpotifyObjects";
+import type { Artist, Paging, SimplifiedAlbum } from "../model/SpotifyObjects";
 import type { GetArtistAlbumsOptions } from "../model/SpotifyOptions";
 import type {
   GetArtistTopTracksResponse,

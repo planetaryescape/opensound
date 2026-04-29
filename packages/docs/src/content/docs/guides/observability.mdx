@@ -4,22 +4,21 @@ description: Add OpenTelemetry tracing to your spotify-effect application with @
 head: []
 ---
 
-import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
-
 `@spotify-effect/otel-node` provides OpenTelemetry tracing for your Spotify API calls. This helps you understand request latency, trace errors, and monitor API usage in production.
 
 ## Installation
 
-<Tabs>
-  <TabItem label="bun">
-    ```sh bun add @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http
-    @effect/opentelemetry ```
-  </TabItem>
-  <TabItem label="npm">
-    ```sh npm install @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http
-    @effect/opentelemetry ```
-  </TabItem>
-</Tabs>
+### bun
+
+```sh
+bun add @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
+```
+
+### npm
+
+```sh
+npm install @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
+```
 
 ## Setup
 
