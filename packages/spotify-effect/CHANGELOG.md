@@ -1,5 +1,15 @@
 # @spotify-effect/core
 
+## 0.6.0
+
+### Minor Changes
+
+- dc1c59f: feat: release browser session sync and tracing improvements
+
+  Classify auth and request errors more accurately, sync browser sessions with stored credentials, and add stream pagination SSE support with matching docs updates.
+
+  This release also reflects the move of the Spotify Effect package family to the `planetaryescape` org.
+
 ## 0.5.0
 
 ### Minor Changes
@@ -22,10 +32,16 @@
 
   ```ts
   // Before
-  import { makeSpotifyNodeTelemetryLayer, getOtlpTraceExporterUrl } from "@spotify-effect/core";
+  import {
+    makeSpotifyNodeTelemetryLayer,
+    getOtlpTraceExporterUrl,
+  } from "@spotify-effect/core";
 
   // After
-  import { makeNodeTelemetryLayer, getOtlpTraceExporterUrl } from "@spotify-effect/otel-node";
+  import {
+    makeNodeTelemetryLayer,
+    getOtlpTraceExporterUrl,
+  } from "@spotify-effect/otel-node";
   ```
 
   `makeNodeTelemetryLayer` accepts a `serviceName` string and an optional `options` object with a `batch` boolean to select between `SimpleSpanProcessor` (default) and `BatchSpanProcessor`. It reads `OTEL_EXPORTER_OTLP_ENDPOINT` from the environment automatically.
@@ -35,6 +51,7 @@
 ### Minor Changes
 
 - Refactor the public API around Effect-native services and layers.
+
   - Add `ServiceMap.Service` contracts for auth, session, request, and each Spotify domain module
   - Add `makeSpotifyLayer` as the primary composition entrypoint for consumers
   - Export live domain layers and service tags instead of the old `SpotifyWebApi` facade and `*Api` classes

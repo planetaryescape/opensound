@@ -1,5 +1,20 @@
 # @spotify-effect/browser
 
+## 0.6.0
+
+### Minor Changes
+
+- dc1c59f: feat: release browser session sync and tracing improvements
+
+  Classify auth and request errors more accurately, sync browser sessions with stored credentials, and add stream pagination SSE support with matching docs updates.
+
+  This release also reflects the move of the Spotify Effect package family to the `planetaryescape` org.
+
+### Patch Changes
+
+- Updated dependencies [dc1c59f]
+  - @spotify-effect/core@0.6.0
+
 ## 0.5.0
 
 ### Minor Changes
