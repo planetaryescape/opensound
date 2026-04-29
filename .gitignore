@@ -5,3 +5,5 @@ dist
 .opencode
 .turbo
 packages/docs/src/content/docs/api/
+.env**
+.sst

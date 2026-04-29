@@ -1,0 +1,59 @@
+name: SST Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/deploy.yml"
+      - "bun.lock"
+      - "package.json"
+      - "sst.config.ts"
+      - "infra/**"
+      - "packages/frontpage"
+      - "packages/docs"
+      - "turbo.json"
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Run sst refresh before deploying"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: deploy-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install
+
+      - name: Remove system-wide Pulumi
+        run: sudo rm -f /usr/local/bin/pulumi*
+
+      - name: Refresh
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.refresh }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_DEFAULT_ACCOUNT_ID }}
+        run: bun run sst refresh --stage=prod
+
+      - name: sst deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_DEFAULT_ACCOUNT_ID }}
+        run: bun run sst deploy --stage=prod

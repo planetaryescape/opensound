@@ -13,6 +13,7 @@
     "check": "turbo run check",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "dev": "sst dev",
     "docs": "turbo run dev --filter=@spotify-effect/docs",
     "spotify-docs": "turbo run dev --filter=@spotify-effect/docs",
     "frontpage": "turbo run dev --filter=@opensound/frontpage --filter=@spotify-effect/docs",
@@ -39,5 +40,8 @@
     "typescript": "^5.9.3",
     "vitest": "^4.1.4"
   },
-  "packageManager": "bun@1.3.11"
+  "packageManager": "bun@1.3.11",
+  "dependencies": {
+    "sst": "4.12.5"
+  }
 }

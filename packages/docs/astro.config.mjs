@@ -3,7 +3,7 @@ import starlight from "@astrojs/starlight";
 import starlightTypeDoc, { typeDocSidebarGroup } from "starlight-typedoc";
 
 export default defineConfig({
-  site: "https://guidefari.github.io",
+  site: "https://spotify.opensound.dev",
   base: "/",
   integrations: [
     starlight({
