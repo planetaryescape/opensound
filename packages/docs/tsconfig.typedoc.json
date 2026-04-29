@@ -2,7 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": false,
-    "lib": ["ES2022", "DOM"]
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": "../..",
+    "paths": {
+      "@spotify-effect/core": ["packages/spotify-effect/src/index.ts"],
+      "@spotify-effect/browser": ["packages/browser/src/index.ts"],
+      "@spotify-effect/otel-node": ["packages/otel-node/src/index.ts"]
+    }
   },
-  "include": ["../spotify-effect/src/**/*.ts", "../browser/src/**/*.ts", "../otel-node/src/**/*.ts"]
+  "include": ["../spotify-effect/src/**/*.ts", "../browser/src/**/*.ts", "../otel-node/src/**/*.ts"],
+  "exclude": ["../spotify-effect/src/**/*.test.ts", "../browser/src/**/*.test.ts", "../otel-node/src/**/*.test.ts"]
 }
