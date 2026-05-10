@@ -1,5 +1,13 @@
 # @spotify-effect/browser
 
+## 0.6.1
+
+### Patch Changes
+
+- Fix: Replace workspace protocol with npm version in @spotify-effect/browser dependencies for npm install compatibility
+- Updated dependencies
+  - @spotify-effect/core@0.6.1
+
 ## 0.6.0
 
 ### Minor Changes

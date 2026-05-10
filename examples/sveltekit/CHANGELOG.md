@@ -1,5 +1,14 @@
 # @examples/sveltekit
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/browser@0.6.1
+  - @spotify-effect/core@0.6.1
+  - @spotify-effect/otel-node@0.6.1
+
 ## 0.0.5
 
 ### Patch Changes
