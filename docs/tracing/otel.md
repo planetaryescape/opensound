@@ -146,3 +146,13 @@ If you want the examples to export directly to a collector instead of printing s
 
 - keep OTLP export behind env vars like `OTEL_EXPORTER_OTLP_ENDPOINT`
 - keep console export as the zero-config default
+
+## Dependency traps
+
+### `@opentelemetry/sdk-trace-node` not found after bumping `@effect/opentelemetry`
+
+**Observed:** `ERR_MODULE_NOT_FOUND: Cannot find package '@opentelemetry/sdk-trace-node'` during `@examples/sveltekit` build (vite SSR).
+
+**Why:** `@effect/opentelemetry/NodeSdk` internally imports `@opentelemetry/sdk-trace-node`, but this transitive dependency wasn't declared in `@spotify-effect/otel-node`. Bun's lockfile didn't place it where the runtime could find it.
+
+**Fix:** Add `"@opentelemetry/sdk-trace-node": "^2.6.0"` to `packages/otel-node/package.json` dependencies. This must stay in sync with `@effect/opentelemetry` version bumps — check the new version's NodeSdk imports when upgrading.

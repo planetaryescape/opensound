@@ -28,6 +28,7 @@
     "@effect/opentelemetry": "4.0.0-beta.65",
     "@opentelemetry/exporter-trace-otlp-http": "^0.213.0",
     "@opentelemetry/sdk-trace-base": "^2.6.0",
+    "@opentelemetry/sdk-trace-node": "^2.6.0",
     "effect": "4.0.0-beta.65"
   },
   "devDependencies": {}
