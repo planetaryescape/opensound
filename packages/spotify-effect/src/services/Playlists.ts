@@ -1,4 +1,4 @@
-import { ServiceMap } from "effect";
+import * as Context from "effect/Context";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
 import type {
@@ -18,7 +18,7 @@ import type {
 } from "../model/SpotifyOptions";
 import type { SnapshotIdResponse } from "../model/SpotifyResponses";
 
-export class Playlists extends ServiceMap.Service<
+export class Playlists extends Context.Service<
   Playlists,
   {
     readonly getPlaylist: (

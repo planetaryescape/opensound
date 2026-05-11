@@ -1,8 +1,8 @@
 import * as Clock from "effect/Clock";
+import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as SynchronizedRef from "effect/SynchronizedRef";
-import { ServiceMap } from "effect";
 import { SpotifyConfigurationError, type SpotifyRequestError } from "../errors/SpotifyError";
 import type {
   GetRefreshableUserTokensResponse,
@@ -12,8 +12,8 @@ import type {
 import { SpotifySessionConfig, type SpotifyCredentials } from "./SpotifyConfig";
 import { SpotifyAuth } from "./SpotifyAuth";
 
-type SpotifyAuthService = ServiceMap.Service.Shape<typeof SpotifyAuth>;
-export type SpotifySessionService = ServiceMap.Service.Shape<typeof SpotifySession>;
+type SpotifyAuthService = SpotifyAuth["Service"];
+export type SpotifySessionService = SpotifySession["Service"];
 
 interface SpotifySessionState {
   readonly accessToken: string;
@@ -178,7 +178,7 @@ const createSpotifySession = (credentials: SpotifyCredentials = {}) => {
   };
 };
 
-export class SpotifySession extends ServiceMap.Service<
+export class SpotifySession extends Context.Service<
   SpotifySession,
   {
     readonly getAccessToken: (options: {
@@ -201,12 +201,12 @@ export class SpotifySession extends ServiceMap.Service<
     readonly getStoredAccessTokenExpiresAt: () => number | undefined;
     readonly getStoredRefreshToken: () => string | undefined;
   }
->()("spotify-effect/SpotifySession", {
-  make: Effect.gen(function* () {
+>()("spotify-effect/SpotifySession") {
+  static readonly make = Effect.gen(function* () {
     const credentials = yield* SpotifySessionConfig;
 
     return createSpotifySession(credentials);
-  }),
-}) {
-  static readonly layer = Layer.effect(this)(this.make);
+  });
+
+  static readonly layer = Layer.effect(this, this.make);
 }

@@ -1,10 +1,10 @@
-import { ServiceMap } from "effect";
+import * as Context from "effect/Context";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
 import type { Artist, CursorBasedPaging } from "../model/SpotifyObjects";
 import type { FollowPlaylistOptions, GetFollowedArtistsOptions } from "../model/SpotifyOptions";
 
-export class Follow extends ServiceMap.Service<
+export class Follow extends Context.Service<
   Follow,
   {
     readonly getFollowedArtists: (

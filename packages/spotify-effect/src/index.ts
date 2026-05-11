@@ -46,6 +46,7 @@ export { getAuthorizationUrl } from "./utils/getAuthorizationUrl";
 export type { SpotifyRequestError } from "./errors/SpotifyError";
 export type {
   SpotifyApiOptions,
+  SpotifyConfigValue,
   SpotifyCredentials,
   SpotifyLayerOptions,
   SpotifyRetryConfig,

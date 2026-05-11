@@ -1,4 +1,4 @@
-import { ServiceMap } from "effect";
+import * as Context from "effect/Context";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
 import type { Paging, SavedAlbum, SavedTrack } from "../model/SpotifyObjects";
@@ -8,7 +8,7 @@ import type {
   RemoveSavedShowsOptions,
 } from "../model/SpotifyOptions";
 
-export class Library extends ServiceMap.Service<
+export class Library extends Context.Service<
   Library,
   {
     readonly getSavedAlbums: (

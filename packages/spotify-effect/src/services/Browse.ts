@@ -1,4 +1,4 @@
-import { ServiceMap } from "effect";
+import * as Context from "effect/Context";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
 import type { Category } from "../model/SpotifyObjects";
@@ -16,7 +16,7 @@ import type {
   GetNewReleasesResponse,
 } from "../model/SpotifyResponses";
 
-export class Browse extends ServiceMap.Service<
+export class Browse extends Context.Service<
   Browse,
   {
     readonly getCategories: (

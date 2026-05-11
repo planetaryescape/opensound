@@ -1,8 +1,8 @@
+import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Ref from "effect/Ref";
 import * as Schema from "effect/Schema";
-import { ServiceMap } from "effect";
 import { HttpClient, HttpClientRequest, type HttpClientResponse } from "effect/unstable/http";
 import {
   SpotifyConfigurationError,
@@ -21,7 +21,6 @@ import { SpotifySession } from "./SpotifySession";
 const spotifyApiBaseUrl = "https://api.spotify.com/v1";
 
 type QueryValue = string | number | boolean | ReadonlyArray<string | number | boolean> | undefined;
-type SyncDecodableSchema = Schema.Top & { readonly DecodingServices: never };
 type DecodableSchema<A> = Schema.Top & { readonly Type: A };
 
 export type { SpotifyRetryConfig };
@@ -31,7 +30,7 @@ export interface SpotifyRequestOptions {
   readonly body?: unknown;
 }
 
-export type SpotifyRequestService = ServiceMap.Service.Shape<typeof SpotifyRequest>;
+export type SpotifyRequestService = SpotifyRequest["Service"];
 
 const defaultRetryConfig = {
   maxRetries: 3,
@@ -82,9 +81,7 @@ const decodeSuccessResponseWithSchema = <A>(
 ): Effect.Effect<A, SpotifyRequestError> =>
   Effect.gen(function* () {
     const body = yield* response.json.pipe(Effect.mapError(mapHttpClientError));
-    const decode = Schema.decodeUnknownSync(
-      schema as unknown as SyncDecodableSchema & { readonly Type: A },
-    );
+    const decode = Schema.decodeUnknownSync(schema as Schema.Decoder<A>);
 
     return yield* Effect.try({
       try: () => decode(body),
@@ -429,7 +426,7 @@ const createSpotifyRequest = (
   };
 };
 
-export class SpotifyRequest extends ServiceMap.Service<
+export class SpotifyRequest extends Context.Service<
   SpotifyRequest,
   {
     readonly getJson: (
@@ -464,8 +461,8 @@ export class SpotifyRequest extends ServiceMap.Service<
       options?: SpotifyRequestOptions,
     ) => Effect.Effect<void, SpotifyRequestError>;
   }
->()("spotify-effect/SpotifyRequest", {
-  make: Effect.gen(function* () {
+>()("spotify-effect/SpotifyRequest") {
+  static readonly make = Effect.gen(function* () {
     const auth = yield* SpotifyAuth;
     const client = yield* HttpClient.HttpClient;
     const config = yield* SpotifyConfig;
@@ -487,18 +484,18 @@ export class SpotifyRequest extends ServiceMap.Service<
     );
 
     return {
-      getJson: (path, options) => provideClient(request.getJson(path, options)),
-      getJsonWithSchema: (path, schema, options) =>
+      getJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.getJson(path, options)),
+      getJsonWithSchema: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
         provideClient(request.getJsonWithSchema(path, schema, options)),
-      postJsonWithSchema: (path, schema, options) =>
+      postJsonWithSchema: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
         provideClient(request.postJsonWithSchema(path, schema, options)),
-      postJson: (path, options) => provideClient(request.postJson(path, options)),
-      putJson: (path, options) => provideClient(request.putJson(path, options)),
-      deleteJson: (path, schema, options) =>
+      postJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.postJson(path, options)),
+      putJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.putJson(path, options)),
+      deleteJson: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
         provideClient(request.deleteJson(path, schema, options)),
-      deleteVoid: (path, options) => provideClient(request.deleteVoid(path, options)),
+      deleteVoid: (path: string, options?: SpotifyRequestOptions) => provideClient(request.deleteVoid(path, options)),
     };
-  }),
-}) {
-  static readonly layer = Layer.effect(this)(this.make);
+  });
+
+  static readonly layer = Layer.effect(this, this.make);
 }

@@ -1,11 +1,11 @@
-import { ServiceMap } from "effect";
+import * as Context from "effect/Context";
 import type * as Effect from "effect/Effect";
 import type { SpotifyRequestError } from "../errors/SpotifyError";
 import type { Album, Paging, SimplifiedTrack } from "../model/SpotifyObjects";
 import type { GetAlbumTracksOptions, MarketOptions } from "../model/SpotifyOptions";
 import type { GetAlbumsResponse } from "../model/SpotifyResponses";
 
-export class Albums extends ServiceMap.Service<
+export class Albums extends Context.Service<
   Albums,
   {
     readonly getAlbum: (

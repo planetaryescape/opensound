@@ -1,5 +1,5 @@
+import * as Context from "effect/Context";
 import * as Layer from "effect/Layer";
-import { ServiceMap } from "effect";
 import type { HttpClient } from "effect/unstable/http";
 
 export interface SpotifyRetryConfig {
@@ -32,23 +32,12 @@ export interface SpotifyConfigValue {
   readonly retry: SpotifyRetryConfig | undefined;
 }
 
-export const SpotifyConfig = ServiceMap.Reference<SpotifyConfigValue>(
-  "spotify-effect/SpotifyConfig",
-  {
-    defaultValue: () => ({
-      clientId: "",
-      clientSecret: "",
-      redirectUri: "",
-      retry: undefined,
-    }),
-  },
+export const SpotifyConfig = Context.Service<SpotifyConfigValue>(
+  "spotify-effect/SpotifyConfig"
 );
 
-export const SpotifySessionConfig = ServiceMap.Reference<SpotifyCredentials>(
-  "spotify-effect/SpotifySessionConfig",
-  {
-    defaultValue: () => ({}),
-  },
+export const SpotifySessionConfig = Context.Service<SpotifyCredentials>(
+  "spotify-effect/SpotifySessionConfig"
 );
 
 export const makeSpotifyConfigLayer = (options: SpotifyApiOptions = {}) =>

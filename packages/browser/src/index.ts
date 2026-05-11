@@ -1,6 +1,6 @@
+import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
-import { ServiceMap } from "effect";
 import { FetchHttpClient, HttpClient } from "effect/unstable/http";
 import {
   Albums,
@@ -66,18 +66,18 @@ const tokensToRefreshableResponse = (
   refresh_token: tokens.refreshToken,
 });
 
-type AlbumsService = ServiceMap.Service.Shape<typeof Albums>;
-type ArtistsService = ServiceMap.Service.Shape<typeof Artists>;
-type BrowseService = ServiceMap.Service.Shape<typeof Browse>;
-type FollowService = ServiceMap.Service.Shape<typeof Follow>;
-type LibraryService = ServiceMap.Service.Shape<typeof Library>;
-type MarketsService = ServiceMap.Service.Shape<typeof Markets>;
-type PersonalizationService = ServiceMap.Service.Shape<typeof Personalization>;
-type PlayerService = ServiceMap.Service.Shape<typeof Player>;
-type PlaylistsService = ServiceMap.Service.Shape<typeof Playlists>;
-type SearchService = ServiceMap.Service.Shape<typeof Search>;
-type TracksService = ServiceMap.Service.Shape<typeof Tracks>;
-type UsersService = ServiceMap.Service.Shape<typeof Users>;
+type AlbumsService = Albums["Service"];
+type ArtistsService = Artists["Service"];
+type BrowseService = Browse["Service"];
+type FollowService = Follow["Service"];
+type LibraryService = Library["Service"];
+type MarketsService = Markets["Service"];
+type PersonalizationService = Personalization["Service"];
+type PlayerService = Player["Service"];
+type PlaylistsService = Playlists["Service"];
+type SearchService = Search["Service"];
+type TracksService = Tracks["Service"];
+type UsersService = Users["Service"];
 
 export interface SpotifyBrowserOptions {
   readonly clientId: string;
@@ -90,7 +90,7 @@ export interface SpotifyBrowserOptions {
   };
 }
 
-export class SpotifyBrowser extends ServiceMap.Service<
+export class SpotifyBrowser extends Context.Service<
   SpotifyBrowser,
   {
     readonly auth: {
@@ -286,7 +286,7 @@ export class SpotifyBrowser extends ServiceMap.Service<
   }
 }
 
-export type SpotifyBrowserClient = ServiceMap.Service.Shape<typeof SpotifyBrowser>;
+export type SpotifyBrowserClient = SpotifyBrowser["Service"];
 
 export {
   createPkceCodeChallenge,

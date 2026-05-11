@@ -9,6 +9,6 @@
   "dependencies": {
     "@spotify-effect/core": "workspace:*",
     "@spotify-effect/otel-node": "workspace:*",
-    "effect": "4.0.0-beta.36"
+    "effect": "4.0.0-beta.65"
   }
 }

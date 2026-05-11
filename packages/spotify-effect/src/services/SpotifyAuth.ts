@@ -1,7 +1,7 @@
+import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Schema from "effect/Schema";
-import { ServiceMap } from "effect";
 import { HttpClient, HttpClientRequest } from "effect/unstable/http";
 import { TOKEN_URL } from "../constants";
 import {
@@ -25,7 +25,7 @@ import {
 } from "../model/SpotifyAuthorizationSchema";
 import { SpotifyConfig } from "./SpotifyConfig";
 
-export type SpotifyAuthService = ServiceMap.Service.Shape<typeof SpotifyAuth>;
+export type SpotifyAuthService = SpotifyAuth["Service"];
 
 const encodeClientCredentials = (value: string): string => {
   const btoaFn = Reflect.get(globalThis, "btoa");
@@ -117,7 +117,7 @@ const getRefreshConfig = (options: { readonly clientId: string; readonly clientS
 const requestToken = <A>(options: {
   readonly body: Readonly<Record<string, string>>;
   readonly authorization?: string;
-  readonly schema: Schema.Top & { readonly Type: A; readonly DecodingServices: never };
+  readonly schema: Schema.Top & { readonly Type: A };
 }): Effect.Effect<A, SpotifyRequestError, HttpClient.HttpClient> =>
   Effect.withSpan(
     Effect.gen(function* () {
@@ -171,7 +171,7 @@ const requestToken = <A>(options: {
         Effect.mapError(mapHttpClientError),
         Effect.flatMap((body) =>
           Effect.try({
-            try: () => Schema.decodeUnknownSync(options.schema)(body),
+            try: () => Schema.decodeUnknownSync(options.schema as Schema.Decoder<A>)(body),
             catch: (cause) =>
               new SpotifyParseError({
                 cause,
@@ -264,7 +264,7 @@ const createSpotifyAuth = (config: {
     }),
 });
 
-export class SpotifyAuth extends ServiceMap.Service<
+export class SpotifyAuth extends Context.Service<
   SpotifyAuth,
   {
     readonly getRefreshableUserTokens: (
@@ -283,8 +283,8 @@ export class SpotifyAuth extends ServiceMap.Service<
       SpotifyRequestError
     >;
   }
->()("spotify-effect/SpotifyAuth", {
-  make: Effect.gen(function* () {
+>()("spotify-effect/SpotifyAuth") {
+  static readonly make = Effect.gen(function* () {
     const client = yield* HttpClient.HttpClient;
     const config = yield* SpotifyConfig;
     const auth = createSpotifyAuth(config);
@@ -293,14 +293,14 @@ export class SpotifyAuth extends ServiceMap.Service<
     ) => Effect.provideService(effect, HttpClient.HttpClient, client);
 
     return {
-      getRefreshableUserTokens: (code) => provideClient(auth.getRefreshableUserTokens(code)),
-      getRefreshableUserTokensWithPkce: (options) =>
+      getRefreshableUserTokens: (code: string) => provideClient(auth.getRefreshableUserTokens(code)),
+      getRefreshableUserTokensWithPkce: (options: { readonly clientId: string; readonly code: string; readonly codeVerifier: string }) =>
         provideClient(auth.getRefreshableUserTokensWithPkce(options)),
-      getRefreshedAccessToken: (refreshToken) =>
+      getRefreshedAccessToken: (refreshToken: string) =>
         provideClient(auth.getRefreshedAccessToken(refreshToken)),
       getTemporaryAppTokens: () => provideClient(auth.getTemporaryAppTokens()),
     };
-  }),
-}) {
-  static readonly layer = Layer.effect(this)(this.make);
+  });
+
+  static readonly layer = Layer.effect(this, this.make);
 }
