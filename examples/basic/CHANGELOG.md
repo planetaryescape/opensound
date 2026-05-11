@@ -1,5 +1,13 @@
 # @examples/basic
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/core@0.6.2
+  - @spotify-effect/otel-node@0.6.2
+
 ## 0.0.6
 
 ### Patch Changes

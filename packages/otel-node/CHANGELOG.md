@@ -1,5 +1,11 @@
 # @spotify-effect/otel-node
 
+## 0.6.2
+
+### Patch Changes
+
+- Bump effect to 4.0.0-beta.65 and adapt service signatures
+
 ## 0.6.1
 
 ### Patch Changes

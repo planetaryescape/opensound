@@ -1,5 +1,13 @@
 # @spotify-effect/browser
 
+## 0.6.2
+
+### Patch Changes
+
+- Bump effect to 4.0.0-beta.65 and adapt service signatures
+- Updated dependencies
+  - @spotify-effect/core@0.6.2
+
 ## 0.6.1
 
 ### Patch Changes
