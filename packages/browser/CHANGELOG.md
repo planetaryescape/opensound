@@ -1,5 +1,12 @@
 # @spotify-effect/browser
 
+## 0.6.3
+
+### Patch Changes
+
+- Clear stored browser tokens when Spotify rejects a refresh token.
+  - @spotify-effect/core@0.6.3
+
 ## 0.6.2
 
 ### Patch Changes

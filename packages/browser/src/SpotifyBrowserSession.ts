@@ -24,6 +24,7 @@ export interface SpotifyBrowserSession {
   readonly setPkceState: (state: BrowserPkceState) => void;
   readonly getTokens: () => BrowserRefreshableTokens | undefined;
   readonly setTokens: (tokens: BrowserRefreshableTokens) => void;
+  readonly clearTokens: () => void;
   readonly clearCallbackParams: (url: URL) => void;
 }
 
@@ -163,6 +164,10 @@ export const makeSpotifyBrowserSession = (options: {
   },
   setTokens: (tokens) => {
     options.localStorage.setItem(defaultStorageKeys.tokens, JSON.stringify(tokens));
+  },
+  clearTokens: () => {
+    options.sessionStorage.removeItem(defaultStorageKeys.tokens);
+    options.localStorage.removeItem(defaultStorageKeys.tokens);
   },
   clearCallbackParams: (url) => {
     options.history.replaceState({}, "", `${url.origin}${url.pathname}`);

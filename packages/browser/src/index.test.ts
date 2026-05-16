@@ -162,6 +162,41 @@ describe("SpotifyBrowser", () => {
     expect(requests[1]?.headers.authorization).toBe("Bearer fresh-token");
   });
 
+  it("clears stored browser tokens when refresh token is invalid", async () => {
+    const { layer, requests } = makeTestHttpClient(
+      () =>
+        new Response(JSON.stringify({ error: "invalid_grant" }), {
+          status: 400,
+          headers: { "content-type": "application/json" },
+        }),
+    );
+
+    const program = Effect.gen(function* () {
+      const spotify = yield* SpotifyBrowser;
+
+      return yield* spotify.auth.refreshToken("revoked-refresh-token").pipe(
+        Effect.matchEffect({
+          onFailure: () => Effect.sync(() => spotify.auth.getTokens()),
+          onSuccess: () => Effect.sync(() => spotify.auth.getTokens()),
+        }),
+      );
+    }).pipe(
+      Effect.provide(
+        makeBrowserLayer(layer, {
+          accessToken: "stale-token",
+          refreshToken: "revoked-refresh-token",
+          accessTokenExpiresAt: Date.now() - 1_000,
+        }),
+      ),
+    );
+
+    const storedTokens = await Effect.runPromise(program);
+
+    expect(storedTokens).toBeUndefined();
+    expect(requests).toHaveLength(1);
+    expect(requests[0]?.url).toBe("https://accounts.spotify.com/api/token");
+  });
+
   it("syncs manually set tokens into the live core session", async () => {
     const { layer, requests } = makeTestHttpClient(
       () =>

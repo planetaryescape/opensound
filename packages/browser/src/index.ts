@@ -17,9 +17,11 @@ import {
   SpotifyAuth,
   SpotifyConfigurationError,
   SpotifySession,
+  TOKEN_URL,
   Tracks,
   Users,
   type AuthorizationScope,
+  type GetRefreshedAccessTokenResponse,
   type SpotifyCredentials,
   type SpotifyLayerOptions,
   type SpotifyRequestError,
@@ -154,6 +156,16 @@ export class SpotifyBrowser extends Context.Service<
       const search = yield* Search;
       const tracks = yield* Tracks;
       const users = yield* Users;
+      const clearStoredTokens = Effect.gen(function* () {
+        yield* spotifySession.setRefreshableUserTokens({
+          access_token: "",
+          token_type: "Bearer",
+          expires_in: 0,
+          scope: "",
+          refresh_token: "",
+        });
+        session.clearTokens();
+      });
 
       return {
         auth: {
@@ -216,7 +228,16 @@ export class SpotifyBrowser extends Context.Service<
             refreshToken: string,
           ): Effect.Effect<BrowserRefreshableTokens, SpotifyRequestError> =>
             Effect.gen(function* () {
-              const result = yield* auth.getRefreshedAccessToken(refreshToken);
+              const result = yield* auth.getRefreshedAccessToken(refreshToken).pipe(
+                Effect.catchIf(
+                  (error) =>
+                    error._tag === "SpotifyHttpError" &&
+                    error.url === TOKEN_URL &&
+                    (error.status === 400 || error.status === 401),
+                  (error): Effect.Effect<GetRefreshedAccessTokenResponse, SpotifyRequestError> =>
+                    clearStoredTokens.pipe(Effect.flatMap(() => Effect.fail(error))),
+                ),
+              );
 
               const existing = session.getTokens();
               const tokens: BrowserRefreshableTokens = {
@@ -241,17 +262,7 @@ export class SpotifyBrowser extends Context.Service<
           },
 
           logout: (): void => {
-            Effect.runSync(
-              spotifySession.setRefreshableUserTokens({
-                access_token: "",
-                token_type: "Bearer",
-                expires_in: 0,
-                scope: "",
-                refresh_token: "",
-              }),
-            );
-            options.session.sessionStorage.removeItem("spotify-effect:tokens");
-            options.session.localStorage.removeItem("spotify-effect:tokens");
+            Effect.runSync(clearStoredTokens);
           },
 
           getSession: (): SpotifyBrowserSession => session,
