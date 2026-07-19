@@ -156,6 +156,7 @@ export class SpotifyBrowser extends Context.Service<
       const search = yield* Search;
       const tracks = yield* Tracks;
       const users = yield* Users;
+      const context = yield* Effect.context();
       const clearStoredTokens = Effect.gen(function* () {
         yield* spotifySession.setRefreshableUserTokens({
           access_token: "",
@@ -255,14 +256,14 @@ export class SpotifyBrowser extends Context.Service<
           getTokens: (): BrowserRefreshableTokens | undefined => session.getTokens(),
 
           setTokens: (tokens: BrowserRefreshableTokens): void => {
-            Effect.runSync(
+            Effect.runSyncWith(context)(
               spotifySession.setRefreshableUserTokens(tokensToRefreshableResponse(tokens)),
             );
             session.setTokens(tokens);
           },
 
           logout: (): void => {
-            Effect.runSync(clearStoredTokens);
+            Effect.runSyncWith(context)(clearStoredTokens);
           },
 
           getSession: (): SpotifyBrowserSession => session,
