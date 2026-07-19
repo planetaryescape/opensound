@@ -23,7 +23,13 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 
 - **`examples/basic`** — Node.js example with tracing
 - **`examples/browser`** — Browser-based PKCE authentication flow
+- **`examples/solid`** — Deployable SolidJS browser example for PKCE and authenticated API smoke tests
 - **`examples/otel`** — Ready-to-run OpenTelemetry collector stack
+
+The SolidJS example is continuously deployed from `main` to
+[`example.spotify.opensound.dev`](https://example.spotify.opensound.dev). Enter a Spotify client ID
+whose redirect URIs include `https://example.spotify.opensound.dev/` to smoke test PKCE, session
+refresh, profile requests, and library requests against the deployed packages.
 
 ## Quick Start
 
