@@ -1,5 +1,13 @@
 # @spotify-effect/browser
 
+## 0.6.4
+
+### Patch Changes
+
+- dade04c: Upgrade the Spotify Effect package family to Effect 4.0.0-beta.99.
+- Updated dependencies [dade04c]
+  - @spotify-effect/core@0.6.4
+
 ## 0.6.3
 
 ### Patch Changes
