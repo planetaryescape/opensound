@@ -1,4 +1,4 @@
-import { docsDomain, frontpageDomain } from "./dns";
+import { docsDomain, frontpageDomain, spotifyExampleDomain } from "./dns";
 
 export const frontpage = new sst.cloudflare.StaticSiteV2("frontpage", {
   path: "./packages/frontpage",
@@ -19,7 +19,17 @@ export const docs = new sst.cloudflare.StaticSiteV2("docs", {
   notFound: "404",
 });
 
+export const spotifyExample = new sst.cloudflare.StaticSiteV2("spotify-example", {
+  path: "./examples/solid",
+  build: {
+    command: "bun run build",
+    output: "dist",
+  },
+  domain: spotifyExampleDomain,
+});
+
 export const outputs = {
   frontpage: frontpage.url,
   docs: docs.url,
+  spotifyExample: spotifyExample.url,
 };
