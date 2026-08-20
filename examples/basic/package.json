@@ -1,6 +1,6 @@
 {
   "name": "@examples/basic",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": true,
   "scripts": {
     "dev": "bun run src/main.ts",
@@ -9,6 +9,6 @@
   "dependencies": {
     "@spotify-effect/core": "workspace:*",
     "@spotify-effect/otel-node": "workspace:*",
-    "effect": "4.0.0-beta.107"
+    "effect": "4.0.0-rc.111"
   }
 }

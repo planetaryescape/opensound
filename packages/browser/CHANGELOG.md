@@ -1,5 +1,13 @@
 # @spotify-effect/browser
 
+## 0.6.6
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-rc.111.
+- Updated dependencies
+  - @spotify-effect/core@0.6.6
+
 ## 0.6.5
 
 ### Patch Changes
