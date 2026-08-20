@@ -11,7 +11,7 @@
         "@changesets/cli": "^2.30.0",
         "@effect/language-service": "^0.87.0",
         "@types/node": "^25.6.0",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
         "oxfmt": "^0.41.0",
         "oxlint": "^1.60.0",
         "tsup": "^8.5.1",
@@ -22,30 +22,30 @@
     },
     "examples/basic": {
       "name": "@examples/basic",
-      "version": "0.0.8",
+      "version": "0.0.9",
       "dependencies": {
         "@spotify-effect/core": "workspace:*",
         "@spotify-effect/otel-node": "workspace:*",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
       },
     },
     "examples/browser": {
       "name": "@examples/browser",
-      "version": "0.0.8",
+      "version": "0.0.9",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
         "@spotify-effect/otel-node": "workspace:*",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
       },
     },
     "examples/solid": {
       "name": "@examples/solid",
-      "version": "0.0.7",
+      "version": "0.0.8",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
         "solid-js": "^1.9.3",
       },
       "devDependencies": {
@@ -56,12 +56,12 @@
     },
     "examples/sveltekit": {
       "name": "@examples/sveltekit",
-      "version": "0.0.8",
+      "version": "0.0.9",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
         "@spotify-effect/otel-node": "workspace:*",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
       },
       "devDependencies": {
         "@sveltejs/adapter-node": "^5.2.0",
@@ -75,15 +75,15 @@
     },
     "packages/browser": {
       "name": "@spotify-effect/browser",
-      "version": "0.6.3",
+      "version": "0.6.4",
       "dependencies": {
-        "@spotify-effect/core": "^0.6.3",
-        "effect": "4.0.0-beta.99",
+        "@spotify-effect/core": "^0.6.4",
+        "effect": "4.0.0-beta.107",
       },
     },
     "packages/docs": {
       "name": "@spotify-effect/docs",
-      "version": "0.0.5",
+      "version": "0.0.6",
       "dependencies": {
         "@astrojs/starlight": "^0.32.0",
         "@spotify-effect/browser": "workspace:*",
@@ -114,20 +114,20 @@
     },
     "packages/otel-node": {
       "name": "@spotify-effect/otel-node",
-      "version": "0.6.3",
+      "version": "0.6.4",
       "dependencies": {
-        "@effect/opentelemetry": "4.0.0-beta.99",
+        "@effect/opentelemetry": "4.0.0-beta.107",
         "@opentelemetry/exporter-trace-otlp-http": "^0.213.0",
         "@opentelemetry/sdk-trace-base": "^2.6.0",
         "@opentelemetry/sdk-trace-node": "^2.6.0",
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
       },
     },
     "packages/spotify-effect": {
       "name": "@spotify-effect/core",
-      "version": "0.6.3",
+      "version": "0.6.4",
       "dependencies": {
-        "effect": "4.0.0-beta.99",
+        "effect": "4.0.0-beta.107",
       },
     },
   },
@@ -295,7 +295,7 @@
 
     "@effect/language-service": ["@effect/language-service@0.87.0", "", { "bin": { "effect-language-service": "cli.js" } }, "sha512-GwZtEwBaOMyKea6YAtN0T0OGBtzJ8/y0KUIfyg29u3hnMRiXKlR2BRDqJmi+SbgaODJNNB3YOd6KuRB/vsxnWw=="],
 
-    "@effect/opentelemetry": ["@effect/opentelemetry@4.0.0-beta.99", "", { "peerDependencies": { "@opentelemetry/api": "^1.9", "@opentelemetry/api-logs": ">=0.203.0 <0.300.0", "@opentelemetry/resources": "^2.0.0", "@opentelemetry/sdk-logs": ">=0.203.0 <0.300.0", "@opentelemetry/sdk-metrics": "^2.0.0", "@opentelemetry/sdk-trace-base": "^2.0.0", "@opentelemetry/sdk-trace-node": "^2.0.0", "@opentelemetry/sdk-trace-web": "^2.0.0", "@opentelemetry/semantic-conventions": "^1.33.0", "effect": "^4.0.0-beta.99" }, "optionalPeers": ["@opentelemetry/api", "@opentelemetry/api-logs", "@opentelemetry/resources", "@opentelemetry/sdk-logs", "@opentelemetry/sdk-metrics", "@opentelemetry/sdk-trace-base", "@opentelemetry/sdk-trace-node", "@opentelemetry/sdk-trace-web"] }, "sha512-grOe4JOY6H5840xLaDhWaric8ydTLIsmvcdTJS8TSPAGG6HRnMw++XIkhiJ+U3FSi7WrZkmYe4rjZ4n556n3Fw=="],
+    "@effect/opentelemetry": ["@effect/opentelemetry@4.0.0-beta.107", "", { "peerDependencies": { "@opentelemetry/api": ">=1.9.0 <2.0.0", "@opentelemetry/api-logs": ">=0.203.0 <0.300.0", "@opentelemetry/resources": ">=2.0.0 <3.0.0", "@opentelemetry/sdk-logs": ">=0.203.0 <0.300.0", "@opentelemetry/sdk-metrics": ">=2.0.0 <3.0.0", "@opentelemetry/sdk-trace-base": ">=2.0.0 <3.0.0", "@opentelemetry/sdk-trace-node": ">=2.0.0 <3.0.0", "@opentelemetry/sdk-trace-web": ">=2.0.0 <3.0.0", "@opentelemetry/semantic-conventions": ">=1.33.0 <2.0.0", "effect": "^4.0.0-beta.107" }, "optionalPeers": ["@opentelemetry/api", "@opentelemetry/api-logs", "@opentelemetry/resources", "@opentelemetry/sdk-logs", "@opentelemetry/sdk-metrics", "@opentelemetry/sdk-trace-base", "@opentelemetry/sdk-trace-node", "@opentelemetry/sdk-trace-web"] }, "sha512-WxR3OEcwVtckNYGxvERA4kiS8cb2B46lSWxQw8P6dCCzW0j0VC7hkWyzryJ16MVXfI/5xQHS3r5j9mud+JVvsg=="],
 
     "@emnapi/core": ["@emnapi/core@1.10.0", "", { "dependencies": { "@emnapi/wasi-threads": "1.2.1", "tslib": "^2.4.0" } }, "sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw=="],
 
@@ -1115,7 +1115,7 @@
 
     "dset": ["dset@3.1.4", "", {}, "sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA=="],
 
-    "effect": ["effect@4.0.0-beta.99", "", { "dependencies": { "@standard-schema/spec": "^1.1.0", "fast-check": "^4.9.0", "find-my-way-ts": "^0.1.6", "ini": "^7.0.0", "kubernetes-types": "^1.30.0", "msgpackr": "^2.0.4", "multipasta": "^0.2.8", "toml": "^4.1.2", "uuid": "^14.0.1", "yaml": "^2.9.0" } }, "sha512-hP1C61uzINfLl/4kKMwcqksxd34s4sQ3VSjsWjhGrkx9CRlXaqnfOK9dpTEKynQ6rA7wU9rb3c+48eDYw7uzxA=="],
+    "effect": ["effect@4.0.0-beta.107", "", { "dependencies": { "@standard-schema/spec": "^1.1.0", "fast-check": "^4.9.0", "kubernetes-types": "^1.30.0", "msgpackr": "^2.0.4", "uuid": "^14.0.1" } }, "sha512-OoBAv8eF+yanc+C6xhgEUnWeXUSHA6ynnscYqpkAY9GSnzZWystsIjBowVqCkLpHGlnRtdIqYT3wHwpOY6JDnQ=="],
 
     "electron-to-chromium": ["electron-to-chromium@1.5.331", "", {}, "sha512-IbxXrsTlD3hRodkLnbxAPP4OuJYdWCeM3IOdT+CpcMoIwIoDfCmRpEtSPfwBXxVkg9xmBeY7Lz2Eo2TDn/HC3Q=="],
 
@@ -1184,8 +1184,6 @@
     "fdir": ["fdir@6.5.0", "", { "peerDependencies": { "picomatch": "^3 || ^4" }, "optionalPeers": ["picomatch"] }, "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg=="],
 
     "fill-range": ["fill-range@7.1.1", "", { "dependencies": { "to-regex-range": "^5.0.1" } }, "sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg=="],
-
-    "find-my-way-ts": ["find-my-way-ts@0.1.6", "", {}, "sha512-a85L9ZoXtNAey3Y6Z+eBWW658kO/MwR7zIafkIUPUMf3isZG0NCs2pjW2wtjxAKuJPxMAsHUIP4ZPGv0o5gyTA=="],
 
     "find-up": ["find-up@4.1.0", "", { "dependencies": { "locate-path": "^5.0.0", "path-exists": "^4.0.0" } }, "sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw=="],
 
@@ -1278,8 +1276,6 @@
     "ignore": ["ignore@5.3.2", "", {}, "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="],
 
     "import-meta-resolve": ["import-meta-resolve@4.2.0", "", {}, "sha512-Iqv2fzaTQN28s/FwZAoFq0ZSs/7hMAHJVX+w8PZl3cY19Pxk6jFFalxQoIfW2826i/fDLXv8IiEZRIT0lDuWcg=="],
-
-    "ini": ["ini@7.0.0", "", {}, "sha512-ifK0CgjALofS5bkrcTy4RaQ9Vx2Knf/eLeIO+NaswQEpH1UblrtTSCIvN71qQDMq0PeQ/SSPojvEJp9vvvfr+w=="],
 
     "inline-style-parser": ["inline-style-parser@0.2.7", "", {}, "sha512-Nb2ctOyNR8DqQoR0OwRG95uNWIC0C1lCgf5Naz5H6Ji72KZ8OcFZLz2P5sNgwlyoJ8Yif11oMuYs5pBQa86csA=="],
 
@@ -1534,8 +1530,6 @@
     "msgpackr": ["msgpackr@2.0.4", "", { "optionalDependencies": { "msgpackr-extract": "^3.0.4" } }, "sha512-o1C5KRmuRt+apqMr1HuGSqWStZoRBUpEsCsl15uM9VdAF1qHLtvMOU2En747EnTyEl6c4pzPewRMFF31s1CNbA=="],
 
     "msgpackr-extract": ["msgpackr-extract@3.0.4", "", { "dependencies": { "node-gyp-build-optional-packages": "5.2.2" }, "optionalDependencies": { "@msgpackr-extract/msgpackr-extract-darwin-arm64": "3.0.4", "@msgpackr-extract/msgpackr-extract-darwin-x64": "3.0.4", "@msgpackr-extract/msgpackr-extract-linux-arm": "3.0.4", "@msgpackr-extract/msgpackr-extract-linux-arm64": "3.0.4", "@msgpackr-extract/msgpackr-extract-linux-x64": "3.0.4", "@msgpackr-extract/msgpackr-extract-win32-x64": "3.0.4" }, "bin": { "download-msgpackr-prebuilds": "bin/download-prebuilds.js" } }, "sha512-4kmO/MdyUIkLIvTPr8VHLil4AtoKIoniWPIEk5+CDy0xnWC84azhSFmuJ7PxZdsYtiP5kEeQsORAVIeMgxT+Hw=="],
-
-    "multipasta": ["multipasta@0.2.8", "", {}, "sha512-ZPWuMKyv0cSO29f7hozp+k6+crZbQijV8ipMvxNxRf2SwtYGTX1ZX89Kd20VV4H9Znonx+EQn+iy1wGQsJ+b+Q=="],
 
     "mz": ["mz@2.7.0", "", { "dependencies": { "any-promise": "^1.0.0", "object-assign": "^4.0.1", "thenify-all": "^1.0.0" } }, "sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q=="],
 
@@ -1848,8 +1842,6 @@
     "tinyrainbow": ["tinyrainbow@3.1.0", "", {}, "sha512-Bf+ILmBgretUrdJxzXM0SgXLZ3XfiaUuOj/IKQHuTXip+05Xn+uyEYdVg0kYDipTBcLrCVyUzAPz7QmArb0mmw=="],
 
     "to-regex-range": ["to-regex-range@5.0.1", "", { "dependencies": { "is-number": "^7.0.0" } }, "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ=="],
-
-    "toml": ["toml@4.3.0", "", {}, "sha512-lVb8X9BsPVuH0M4BKeS91tXAmJvCjQ5UIyAbQFaxkKGyUFK2RPkhwaFSQH8vbpl1d23eu/IBH+dwVMHWaq9A5A=="],
 
     "totalist": ["totalist@3.0.1", "", {}, "sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ=="],
 

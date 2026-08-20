@@ -1,6 +1,6 @@
 {
   "name": "@examples/sveltekit",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +13,7 @@
     "@spotify-effect/browser": "workspace:*",
     "@spotify-effect/core": "workspace:*",
     "@spotify-effect/otel-node": "workspace:*",
-    "effect": "4.0.0-beta.99"
+    "effect": "4.0.0-beta.107"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^5.2.0",

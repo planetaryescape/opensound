@@ -1,5 +1,11 @@
 # @spotify-effect/otel-node
 
+## 0.6.5
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-beta.107.
+
 ## 0.6.4
 
 ### Patch Changes

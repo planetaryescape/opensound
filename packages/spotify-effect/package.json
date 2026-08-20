@@ -1,6 +1,6 @@
 {
   "name": "@spotify-effect/core",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -27,7 +27,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
   "dependencies": {
-    "effect": "4.0.0-beta.99"
+    "effect": "4.0.0-beta.107"
   },
   "devDependencies": {}
 }

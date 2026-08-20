@@ -1,6 +1,6 @@
 {
   "name": "@examples/solid",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
   "dependencies": {
     "@spotify-effect/browser": "workspace:*",
     "@spotify-effect/core": "workspace:*",
-    "effect": "4.0.0-beta.99",
+    "effect": "4.0.0-beta.107",
     "solid-js": "^1.9.3"
   },
   "devDependencies": {
