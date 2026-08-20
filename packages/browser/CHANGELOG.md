@@ -1,5 +1,13 @@
 # @spotify-effect/browser
 
+## 0.6.7
+
+### Patch Changes
+
+- Declare Effect as a required peer dependency and document the required Effect 4 release candidate.
+- Updated dependencies
+  - @spotify-effect/core@0.6.7
+
 ## 0.6.6
 
 ### Patch Changes

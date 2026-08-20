@@ -25,6 +25,17 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 - **`examples/browser`** — Browser-based PKCE authentication flow
 - **`examples/otel`** — Ready-to-run OpenTelemetry collector stack
 
+## Installation
+
+`effect` is a required peer dependency. Install the matching release candidate with the SDK:
+
+```sh
+bun add @spotify-effect/core effect@4.0.0-rc.111
+# or: npm install @spotify-effect/core effect@4.0.0-rc.111
+```
+
+If `effect` is not installed, your package manager may report a missing peer dependency and the application may fail to resolve `effect` at runtime.
+
 ## Quick Start
 
 ```typescript

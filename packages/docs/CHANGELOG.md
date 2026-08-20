@@ -1,5 +1,13 @@
 # @spotify-effect/docs
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/core@0.6.7
+  - @spotify-effect/browser@0.6.7
+
 ## 0.0.8
 
 ### Patch Changes

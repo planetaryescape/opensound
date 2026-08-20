@@ -22,7 +22,7 @@
     },
     "examples/basic": {
       "name": "@examples/basic",
-      "version": "0.0.10",
+      "version": "0.0.11",
       "dependencies": {
         "@spotify-effect/core": "workspace:*",
         "@spotify-effect/otel-node": "workspace:*",
@@ -31,7 +31,7 @@
     },
     "examples/browser": {
       "name": "@examples/browser",
-      "version": "0.0.10",
+      "version": "0.0.11",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
@@ -41,7 +41,7 @@
     },
     "examples/solid": {
       "name": "@examples/solid",
-      "version": "0.0.9",
+      "version": "0.0.10",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
@@ -56,7 +56,7 @@
     },
     "examples/sveltekit": {
       "name": "@examples/sveltekit",
-      "version": "0.0.10",
+      "version": "0.0.11",
       "dependencies": {
         "@spotify-effect/browser": "workspace:*",
         "@spotify-effect/core": "workspace:*",
@@ -75,15 +75,20 @@
     },
     "packages/browser": {
       "name": "@spotify-effect/browser",
-      "version": "0.6.5",
+      "version": "0.6.6",
       "dependencies": {
-        "@spotify-effect/core": "^0.6.5",
+        "@spotify-effect/core": "^0.6.6",
+      },
+      "devDependencies": {
+        "effect": "4.0.0-rc.111",
+      },
+      "peerDependencies": {
         "effect": "4.0.0-rc.111",
       },
     },
     "packages/docs": {
       "name": "@spotify-effect/docs",
-      "version": "0.0.7",
+      "version": "0.0.8",
       "dependencies": {
         "@astrojs/starlight": "^0.32.0",
         "@spotify-effect/browser": "workspace:*",
@@ -114,19 +119,27 @@
     },
     "packages/otel-node": {
       "name": "@spotify-effect/otel-node",
-      "version": "0.6.5",
+      "version": "0.6.6",
       "dependencies": {
         "@effect/opentelemetry": "4.0.0-rc.111",
         "@opentelemetry/exporter-trace-otlp-http": "^0.213.0",
         "@opentelemetry/sdk-trace-base": "^2.6.0",
         "@opentelemetry/sdk-trace-node": "^2.6.0",
+      },
+      "devDependencies": {
+        "effect": "4.0.0-rc.111",
+      },
+      "peerDependencies": {
         "effect": "4.0.0-rc.111",
       },
     },
     "packages/spotify-effect": {
       "name": "@spotify-effect/core",
-      "version": "0.6.5",
-      "dependencies": {
+      "version": "0.6.6",
+      "devDependencies": {
+        "effect": "4.0.0-rc.111",
+      },
+      "peerDependencies": {
         "effect": "4.0.0-rc.111",
       },
     },

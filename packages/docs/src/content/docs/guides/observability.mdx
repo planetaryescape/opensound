@@ -6,18 +6,20 @@ head: []
 
 `@spotify-effect/otel-node` provides OpenTelemetry tracing for your Spotify API calls. This helps you understand request latency, trace errors, and monitor API usage in production.
 
+`effect` is a required peer dependency. Install version `4.0.0-rc.111` alongside this package.
+
 ## Installation
 
 ### bun
 
 ```sh
-bun add @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
+bun add @spotify-effect/otel-node effect@4.0.0-rc.111 @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
 ```
 
 ### npm
 
 ```sh
-npm install @spotify-effect/otel-node @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
+npm install @spotify-effect/otel-node effect@4.0.0-rc.111 @opentelemetry/exporter-trace-otlp-http @effect/opentelemetry
 ```
 
 ## Setup
