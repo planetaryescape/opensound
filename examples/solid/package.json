@@ -10,7 +10,7 @@
   "dependencies": {
     "@spotify-effect/browser": "workspace:*",
     "@spotify-effect/core": "workspace:*",
-    "effect": "4.0.0-rc.111",
+    "effect": "4.0.0-rc.116",
     "solid-js": "^1.9.3"
   },
   "devDependencies": {

@@ -1,0 +1,35 @@
+{
+  "name": "@examples/foldkit-ssg",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --outDir dist/client",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt",
+    "test": "vitest run",
+    "lint": "oxlint src"
+  },
+  "dependencies": {
+    "@effect/platform-browser": "4.0.0-rc.116",
+    "@spotify-effect/core": "workspace:*",
+    "effect": "4.0.0-rc.116",
+    "foldkit": "0.163.0"
+  },
+  "devDependencies": {
+    "@foldkit/devtools": "0.163.0",
+    "@foldkit/devtools-mcp": "0.22.0",
+    "@foldkit/oxlint-plugin": "0.15.0",
+    "@foldkit/vite-plugin": "0.24.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.4.0",
+    "happy-dom": "^20.11.13",
+    "oxfmt": "^0.66.0",
+    "oxlint": "^1.80.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  }
+}
