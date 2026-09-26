@@ -25,15 +25,15 @@
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
   "dependencies": {
-    "@effect/opentelemetry": "4.0.0-rc.111",
+    "@effect/opentelemetry": "4.0.0-rc.116",
     "@opentelemetry/exporter-trace-otlp-http": "^0.213.0",
     "@opentelemetry/sdk-trace-base": "^2.6.0",
     "@opentelemetry/sdk-trace-node": "^2.6.0"
   },
   "peerDependencies": {
-    "effect": "4.0.0-rc.111"
+    "effect": "4.0.0-rc.116"
   },
   "devDependencies": {
-    "effect": "4.0.0-rc.111"
+    "effect": "4.0.0-rc.116"
   }
 }
