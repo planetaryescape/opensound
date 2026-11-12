@@ -1,0 +1,10 @@
+{
+  "audioPath": "mix.mp3",
+  "imagePath": "cover.jpg",
+  "title": "Night Mix",
+  "description": "1. Artist - Track\n2. Another Artist - Another Track",
+  "outputFormat": "mp3",
+  "outputPath": "output/night-mix.mp3",
+  "artist": "Artist",
+  "album": "Collection"
+}
