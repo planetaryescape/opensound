@@ -1,5 +1,11 @@
 # @spotify-effect/core
 
+## 0.6.8
+
+### Patch Changes
+
+- 1f00c56: Align current-user profiles with Spotify's OpenAPI: accept omitted deprecated followers and preserve optional account_id for account linking. Continue validating deprecated fields when returned.
+
 ## 0.6.7
 
 ### Patch Changes

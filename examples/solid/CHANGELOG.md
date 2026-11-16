@@ -1,5 +1,13 @@
 # @examples/solid
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [1f00c56]
+  - @spotify-effect/core@0.6.8
+  - @spotify-effect/browser@0.6.8
+
 ## 0.0.11
 
 ### Patch Changes
