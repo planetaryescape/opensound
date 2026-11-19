@@ -19,6 +19,10 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 - **`@spotify-effect/browser`** — Browser-focused package with PKCE/session helpers and `SpotifyBrowser`
 - **`@spotify-effect/otel-node`** — Node OpenTelemetry integration
 
+## Standalone tools
+
+- **[gbpm](tools/gbpm):** A Rust/FFmpeg CLI for preparing MP3 mixes and still-image MP4 videos from job files, with optional intro overlays and explicit metadata. Its binary releases are independent of the Spotify SDK.
+
 ## Examples
 
 - **`examples/basic`** — Node.js example with tracing

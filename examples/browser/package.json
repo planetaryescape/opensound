@@ -1,6 +1,6 @@
 {
   "name": "@examples/browser",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": true,
   "scripts": {
     "dev": "bun run src/server.js",

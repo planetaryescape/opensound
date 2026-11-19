@@ -264,13 +264,14 @@ export type PlaylistItem = {
 };
 
 export type PrivateUser = {
+  account_id?: string;
   birthdate?: string;
   country?: string;
   display_name: string | null;
   email?: string;
   explicit_content?: ExplicitContent;
   external_urls: ExternalURL;
-  followers: Followers;
+  followers?: Followers;
   href: string;
   id: string;
   images: SpotifyImage[];
