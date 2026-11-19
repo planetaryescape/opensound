@@ -1,5 +1,13 @@
 # @spotify-effect/core
 
+## 0.7.0
+
+### Minor Changes
+
+- bb46e0c: Build against stable Effect 4.1.4 and update HTTP imports to the stable `effect/http` paths. Core and browser consumers can use Effect 4.0.6 or newer; the telemetry package requires Effect 4.1.4 or newer.
+
+  Accept nullable album-track preview URLs so consumers no longer need to patch the response decoder.
+
 ## 0.6.8
 
 ### Patch Changes
@@ -76,16 +84,10 @@
 
   ```ts
   // Before
-  import {
-    makeSpotifyNodeTelemetryLayer,
-    getOtlpTraceExporterUrl,
-  } from "@spotify-effect/core";
+  import { makeSpotifyNodeTelemetryLayer, getOtlpTraceExporterUrl } from "@spotify-effect/core";
 
   // After
-  import {
-    makeNodeTelemetryLayer,
-    getOtlpTraceExporterUrl,
-  } from "@spotify-effect/otel-node";
+  import { makeNodeTelemetryLayer, getOtlpTraceExporterUrl } from "@spotify-effect/otel-node";
   ```
 
   `makeNodeTelemetryLayer` accepts a `serviceName` string and an optional `options` object with a `batch` boolean to select between `SimpleSpanProcessor` (default) and `BatchSpanProcessor`. It reads `OTEL_EXPORTER_OTLP_ENDPOINT` from the environment automatically.

@@ -1,5 +1,18 @@
 # @spotify-effect/browser
 
+## 0.7.0
+
+### Minor Changes
+
+- bb46e0c: Build against stable Effect 4.1.4 and update HTTP imports to the stable `effect/http` paths. Core and browser consumers can use Effect 4.0.6 or newer; the telemetry package requires Effect 4.1.4 or newer.
+
+  Accept nullable album-track preview URLs so consumers no longer need to patch the response decoder.
+
+### Patch Changes
+
+- Updated dependencies [bb46e0c]
+  - @spotify-effect/core@0.7.0
+
 ## 0.6.8
 
 ### Patch Changes

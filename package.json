@@ -26,6 +26,7 @@
     "example:sveltekit": "SPOTIFY_EFFECT_TRACE=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:14318 turbo run dev --filter=@examples/sveltekit",
     "ci": "bun run lint && bun run check && bun run typecheck && bun run test && bun run build",
     "release": "changeset publish",
+    "version-packages": "changeset version && bun install --lockfile-only --ignore-scripts",
     "prepare": "effect-language-service patch"
   },
   "dependencies": {

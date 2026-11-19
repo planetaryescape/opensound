@@ -8,7 +8,7 @@ export default $config({
       removal: "remove",
       home: "cloudflare",
       providers: {
-        cloudflare: "6.13.0",
+        cloudflare: "6.15.0",
       },
     };
   },
