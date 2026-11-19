@@ -7,7 +7,7 @@ import { Flags, init, view } from './main'
 
 export const renderDocument = Server.renderDocument
 
-const trackForBuild = Effect.gen(function* () {
+const loadTrackForBuild = Effect.gen(function* () {
   const clientId = process.env['SPOTIFY_CLIENT_ID']
   const clientSecret = process.env['SPOTIFY_CLIENT_SECRET']
   const trackId = process.env['SPOTIFY_TRACK_ID']
@@ -20,10 +20,13 @@ const trackForBuild = Effect.gen(function* () {
   }).pipe(Effect.provide(makeSpotifyLayer({ clientId, clientSecret })))
   return `${track.name} — ${track.artists.map(artist => artist.name).join(', ')}`
 }).pipe(
+  Effect.timeout('10 seconds'),
   Effect.catch(() =>
     Effect.succeed('Spotify could not load this track during the build.'),
   ),
 )
+
+const trackForBuild = Effect.runSync(Effect.cached(loadTrackForBuild))
 
 export const prerenderPaths: ReadonlyArray<string> = ['/', '/about']
 
@@ -42,4 +45,5 @@ export const renderPage = (request: Request): Promise<Server.EntryResult> =>
 
       return Server.Rendered(renderedApplication)
     }),
+    { signal: request.signal },
   )
