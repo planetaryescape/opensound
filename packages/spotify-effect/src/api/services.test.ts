@@ -66,6 +66,46 @@ describe("service layers", () => {
     expect(requests[0]?.url).toBe(`https://api.spotify.com/v1/albums/${albumFixture.id}`);
   });
 
+  it.each([null, "https://cdn.example/preview.mp3"])(
+    "decodes album tracks with preview_url %s",
+    async (previewUrl) => {
+      const response = {
+        ...albumFixture.tracks,
+        items: albumFixture.tracks.items.map((track) => ({
+          ...track,
+          preview_url: previewUrl,
+        })),
+      };
+      const { result, requests } = runWithLayer(
+        jsonResponse(response),
+        Effect.gen(function* () {
+          const albums = yield* Albums;
+          return yield* albums.getAlbumTracks(albumFixture.id);
+        }),
+      );
+
+      expect(await result).toEqual(response);
+      expect(requests[0]?.url).toBe(
+        `https://api.spotify.com/v1/albums/${albumFixture.id}/tracks`,
+      );
+    },
+  );
+
+  it("rejects malformed album-track preview URLs", async () => {
+    const { result } = runWithLayer(
+      jsonResponse({
+        ...albumFixture.tracks,
+        items: albumFixture.tracks.items.map((track) => ({ ...track, preview_url: 42 })),
+      }),
+      Effect.gen(function* () {
+        const albums = yield* Albums;
+        return yield* albums.getAlbumTracks(albumFixture.id);
+      }),
+    );
+
+    await expect(result).rejects.toMatchObject({ _tag: "SpotifyParseError" });
+  });
+
   it("wires Artists through the composed layer", async () => {
     const { result, requests } = runWithLayer(
       jsonResponse(getArtistTopTracksFixture),
