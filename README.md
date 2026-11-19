@@ -31,11 +31,11 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 
 ## Installation
 
-`effect` is a required peer dependency. Install the matching release candidate with the SDK:
+`effect` is a required peer dependency. Install the matching stable release with the SDK:
 
 ```sh
-bun add @spotify-effect/core effect@4.0.0-rc.111
-# or: npm install @spotify-effect/core effect@4.0.0-rc.111
+bun add @spotify-effect/core effect@4.1.4
+# or: npm install @spotify-effect/core effect@4.1.4
 ```
 
 If `effect` is not installed, your package manager may report a missing peer dependency and the application may fail to resolve `effect` at runtime.
