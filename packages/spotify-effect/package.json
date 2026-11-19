@@ -26,10 +26,10 @@
     "test:watch": "bun vitest --config vite.config.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
-  "peerDependencies": {
-    "effect": "4.0.0-rc.111"
-  },
   "devDependencies": {
-    "effect": "4.0.0-rc.111"
+    "effect": "4.1.4"
+  },
+  "peerDependencies": {
+    "effect": "^4.0.6"
   }
 }

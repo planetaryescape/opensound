@@ -1,6 +1,17 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "tasks": {
+    "@examples/foldkit-ssg#build": {
+      "env": [
+        "SPOTIFY_CLIENT_ID",
+        "SPOTIFY_CLIENT_SECRET",
+        "SPOTIFY_TRACK_ID",
+        "FOLDKIT_BUILD_ID"
+      ]
+    },
+    "@examples/foldkit-ssr#build": {
+      "env": ["FOLDKIT_BUILD_ID"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": [

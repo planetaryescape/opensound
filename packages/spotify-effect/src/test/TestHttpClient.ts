@@ -1,6 +1,6 @@
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
-import { HttpClient, HttpClientRequest, HttpClientResponse } from "effect/unstable/http";
+import { HttpClient, HttpClientRequest, HttpClientResponse } from "effect/http";
 
 export interface RequestCapture {
   readonly url: string;

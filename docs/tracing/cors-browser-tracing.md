@@ -28,7 +28,7 @@ Consumers create a custom `httpClientLayer` with tracer propagation disabled:
 
 ```ts
 import * as Layer from "effect/Layer";
-import { FetchHttpClient, HttpClient } from "effect/unstable/http";
+import { FetchHttpClient, HttpClient } from "effect/http";
 
 const browserHttpClientLayer = Layer.mergeAll(
   FetchHttpClient.layer,

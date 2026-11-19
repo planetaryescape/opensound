@@ -54,7 +54,7 @@ export const GetAlbumTracksResponseSchema = makePagingSchema(
     id: Schema.String,
     is_playable: Schema.optionalKey(Schema.Boolean),
     name: Schema.String,
-    preview_url: Schema.String,
+    preview_url: Schema.NullOr(Schema.String),
     track_number: Schema.Number,
     type: Schema.Literal("track"),
     uri: Schema.String,

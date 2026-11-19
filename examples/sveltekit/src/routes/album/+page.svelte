@@ -110,13 +110,13 @@
 			? libraryOffset + PAGE_SIZE
 			: Math.max(0, libraryOffset - PAGE_SIZE);
 		const newPage = Math.floor(newOffset / PAGE_SIZE) + 1;
-		const url = new URL(page.url);
+		const url = new URL(page.url.href);
 		if (newPage <= 1) {
 			url.searchParams.delete('page');
 		} else {
 			url.searchParams.set('page', String(newPage));
 		}
-		goto(url.toString(), { replaceState: false, noScroll: true });
+		goto(url.toString(), { replace: false, reset: false });
 	}
 
 	async function performSearch(query: string) {

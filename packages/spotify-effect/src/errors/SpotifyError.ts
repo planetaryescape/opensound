@@ -1,5 +1,5 @@
 import * as Data from "effect/Data";
-import * as HttpClientError from "effect/unstable/http/HttpClientError";
+import * as HttpClientError from "effect/http/HttpClientError";
 
 export class SpotifyTransportError extends Data.TaggedError("SpotifyTransportError")<{
   readonly cause: unknown;

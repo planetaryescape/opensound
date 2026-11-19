@@ -1,7 +1,7 @@
 import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
-import { FetchHttpClient, HttpClient } from "effect/unstable/http";
+import { FetchHttpClient, HttpClient } from "effect/http";
 import {
   Albums,
   Artists,
