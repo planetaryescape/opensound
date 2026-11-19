@@ -19,6 +19,10 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 - **`@spotify-effect/browser`** — Browser-focused package with PKCE/session helpers and `SpotifyBrowser`
 - **`@spotify-effect/otel-node`** — Node OpenTelemetry integration
 
+## Standalone tools
+
+- **[gbpm](tools/gbpm):** A Rust/FFmpeg CLI for preparing MP3 mixes and still-image MP4 videos from job files, with optional intro overlays and explicit metadata. Its binary releases are independent of the Spotify SDK.
+
 ## Examples
 
 - **`examples/basic`** — Node.js example with tracing
@@ -30,6 +34,17 @@ The SolidJS example is continuously deployed from `main` to
 [`example.spotify.opensound.dev`](https://example.spotify.opensound.dev). Enter a Spotify client ID
 whose redirect URIs include `https://example.spotify.opensound.dev/` to smoke test PKCE, session
 refresh, profile requests, and library requests against the deployed packages.
+
+## Installation
+
+`effect` is a required peer dependency. Install the matching stable release with the SDK:
+
+```sh
+bun add @spotify-effect/core effect@4.1.4
+# or: npm install @spotify-effect/core effect@4.1.4
+```
+
+If `effect` is not installed, your package manager may report a missing peer dependency and the application may fail to resolve `effect` at runtime.
 
 ## Quick Start
 

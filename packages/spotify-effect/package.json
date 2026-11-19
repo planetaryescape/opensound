@@ -1,6 +1,6 @@
 {
   "name": "@spotify-effect/core",
-  "version": "0.6.3",
+  "version": "0.6.8",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -26,8 +26,10 @@
     "test:watch": "bun vitest --config vite.config.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
-  "dependencies": {
-    "effect": "4.0.0-beta.65"
+  "devDependencies": {
+    "effect": "4.1.4"
   },
-  "devDependencies": {}
+  "peerDependencies": {
+    "effect": "4.1.4"
+  }
 }

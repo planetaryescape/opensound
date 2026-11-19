@@ -1,5 +1,35 @@
 # @spotify-effect/core
 
+## 0.6.8
+
+### Patch Changes
+
+- 1f00c56: Align current-user profiles with Spotify's OpenAPI: accept omitted deprecated followers and preserve optional account_id for account linking. Continue validating deprecated fields when returned.
+
+## 0.6.7
+
+### Patch Changes
+
+- Declare Effect as a required peer dependency and document the required Effect 4 release candidate.
+
+## 0.6.6
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-rc.111.
+
+## 0.6.5
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-beta.107.
+
+## 0.6.4
+
+### Patch Changes
+
+- dade04c: Upgrade the Spotify Effect package family to Effect 4.0.0-beta.99.
+
 ## 0.6.3
 
 ## 0.6.2

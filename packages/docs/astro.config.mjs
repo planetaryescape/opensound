@@ -5,6 +5,17 @@ import starlightTypeDoc, { typeDocSidebarGroup } from "starlight-typedoc";
 export default defineConfig({
   site: "https://spotify.opensound.dev",
   base: "/",
+  vite: {
+    environments: {
+      prerender: {
+        build: {
+          rolldownOptions: {
+            external: ["satteri"],
+          },
+        },
+      },
+    },
+  },
   integrations: [
     starlight({
       title: "spotify-effect",
@@ -12,9 +23,13 @@ export default defineConfig({
       disable404Route: true,
       head: [],
       customCss: ["./src/styles/theme.css"],
-      social: {
-        github: "https://github.com/guidefari/spotify-effect",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/guidefari/spotify-effect",
+        },
+      ],
       components: {
         SiteTitle: "./src/components/SiteTitle.astro",
       },

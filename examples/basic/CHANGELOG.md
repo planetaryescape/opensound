@@ -1,5 +1,45 @@
 # @examples/basic
 
+## 0.0.13
+
+### Patch Changes
+
+- Updated dependencies [1f00c56]
+  - @spotify-effect/core@0.6.8
+  - @spotify-effect/otel-node@0.6.8
+
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/core@0.6.7
+  - @spotify-effect/otel-node@0.6.7
+
+## 0.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/core@0.6.6
+  - @spotify-effect/otel-node@0.6.6
+
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @spotify-effect/core@0.6.5
+  - @spotify-effect/otel-node@0.6.5
+
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [dade04c]
+  - @spotify-effect/core@0.6.4
+  - @spotify-effect/otel-node@0.6.4
+
 ## 0.0.8
 
 ### Patch Changes

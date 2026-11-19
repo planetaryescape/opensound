@@ -16,10 +16,12 @@ import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
 ## Installation
 
 <Tabs>
-  <TabItem label="bun">```sh bun add @spotify-effect/core effect ```</TabItem>
-  <TabItem label="npm">```sh npm install @spotify-effect/core effect ```</TabItem>
-  <TabItem label="pnpm">```sh pnpm add @spotify-effect/core effect ```</TabItem>
+  <TabItem label="bun">```sh bun add @spotify-effect/core effect@4.0.0-rc.111 ```</TabItem>
+  <TabItem label="npm">```sh npm install @spotify-effect/core effect@4.0.0-rc.111 ```</TabItem>
+  <TabItem label="pnpm">```sh pnpm add @spotify-effect/core effect@4.0.0-rc.111 ```</TabItem>
 </Tabs>
+
+`effect` is a required peer dependency. Install the matching `4.0.0-rc.111` version explicitly; without it, your package manager may warn or the application may fail to resolve `effect` at runtime.
 
 ## Configure credentials
 

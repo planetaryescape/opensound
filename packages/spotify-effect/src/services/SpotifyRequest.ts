@@ -3,7 +3,7 @@ import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Ref from "effect/Ref";
 import * as Schema from "effect/Schema";
-import { HttpClient, HttpClientRequest, type HttpClientResponse } from "effect/unstable/http";
+import { HttpClient, HttpClientRequest, type HttpClientResponse } from "effect/http";
 import {
   SpotifyConfigurationError,
   SpotifyParseError,
@@ -484,16 +484,26 @@ export class SpotifyRequest extends Context.Service<
     );
 
     return {
-      getJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.getJson(path, options)),
-      getJsonWithSchema: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
-        provideClient(request.getJsonWithSchema(path, schema, options)),
-      postJsonWithSchema: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
-        provideClient(request.postJsonWithSchema(path, schema, options)),
-      postJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.postJson(path, options)),
-      putJson: (path: string, options?: SpotifyRequestOptions) => provideClient(request.putJson(path, options)),
+      getJson: (path: string, options?: SpotifyRequestOptions) =>
+        provideClient(request.getJson(path, options)),
+      getJsonWithSchema: <A>(
+        path: string,
+        schema: DecodableSchema<A>,
+        options?: SpotifyRequestOptions,
+      ) => provideClient(request.getJsonWithSchema(path, schema, options)),
+      postJsonWithSchema: <A>(
+        path: string,
+        schema: DecodableSchema<A>,
+        options?: SpotifyRequestOptions,
+      ) => provideClient(request.postJsonWithSchema(path, schema, options)),
+      postJson: (path: string, options?: SpotifyRequestOptions) =>
+        provideClient(request.postJson(path, options)),
+      putJson: (path: string, options?: SpotifyRequestOptions) =>
+        provideClient(request.putJson(path, options)),
       deleteJson: <A>(path: string, schema: DecodableSchema<A>, options?: SpotifyRequestOptions) =>
         provideClient(request.deleteJson(path, schema, options)),
-      deleteVoid: (path: string, options?: SpotifyRequestOptions) => provideClient(request.deleteVoid(path, options)),
+      deleteVoid: (path: string, options?: SpotifyRequestOptions) =>
+        provideClient(request.deleteVoid(path, options)),
     };
   });
 

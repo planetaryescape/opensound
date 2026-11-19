@@ -1,5 +1,44 @@
 # @spotify-effect/browser
 
+## 0.6.8
+
+### Patch Changes
+
+- Updated dependencies [1f00c56]
+  - @spotify-effect/core@0.6.8
+
+## 0.6.7
+
+### Patch Changes
+
+- Declare Effect as a required peer dependency and document the required Effect 4 release candidate.
+- Updated dependencies
+  - @spotify-effect/core@0.6.7
+
+## 0.6.6
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-rc.111.
+- Updated dependencies
+  - @spotify-effect/core@0.6.6
+
+## 0.6.5
+
+### Patch Changes
+
+- Upgrade the Spotify Effect package family to Effect 4.0.0-beta.107.
+- Updated dependencies
+  - @spotify-effect/core@0.6.5
+
+## 0.6.4
+
+### Patch Changes
+
+- dade04c: Upgrade the Spotify Effect package family to Effect 4.0.0-beta.99.
+- Updated dependencies [dade04c]
+  - @spotify-effect/core@0.6.4
+
 ## 0.6.3
 
 ### Patch Changes

@@ -138,13 +138,14 @@ export const PublicUserSchema = Schema.Struct({
 });
 
 export const PrivateUserSchema = Schema.Struct({
+  account_id: Schema.optionalKey(Schema.String),
   birthdate: Schema.optionalKey(Schema.String),
   country: Schema.optionalKey(Schema.String),
   display_name: Schema.NullOr(Schema.String),
   email: Schema.optionalKey(Schema.String),
   explicit_content: Schema.optionalKey(ExplicitContentSchema),
   external_urls: ExternalURLSchema,
-  followers: FollowersSchema,
+  followers: Schema.optionalKey(FollowersSchema),
   href: Schema.String,
   id: Schema.String,
   images: Schema.mutable(Schema.Array(SpotifyImageSchema)),

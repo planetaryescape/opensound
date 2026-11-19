@@ -1,6 +1,6 @@
 import * as Context from "effect/Context";
 import * as Layer from "effect/Layer";
-import type { HttpClient } from "effect/unstable/http";
+import type { HttpClient } from "effect/http";
 
 export interface SpotifyRetryConfig {
   readonly maxRetries?: number;
@@ -32,12 +32,10 @@ export interface SpotifyConfigValue {
   readonly retry: SpotifyRetryConfig | undefined;
 }
 
-export const SpotifyConfig = Context.Service<SpotifyConfigValue>(
-  "spotify-effect/SpotifyConfig"
-);
+export const SpotifyConfig = Context.Service<SpotifyConfigValue>("spotify-effect/SpotifyConfig");
 
 export const SpotifySessionConfig = Context.Service<SpotifyCredentials>(
-  "spotify-effect/SpotifySessionConfig"
+  "spotify-effect/SpotifySessionConfig",
 );
 
 export const makeSpotifyConfigLayer = (options: SpotifyApiOptions = {}) =>
