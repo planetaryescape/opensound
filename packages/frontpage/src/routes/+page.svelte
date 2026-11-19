@@ -7,7 +7,7 @@
 </svelte:head>
 
 <script lang="ts">
-	import { dev } from '$app/environment';
+	import { dev } from '$app/env';
 
 	const spotifyDocsUrl = 'http://localhost:4321';
 	const spotifyProductionUrl = 'https://spotify.opensound.dev';

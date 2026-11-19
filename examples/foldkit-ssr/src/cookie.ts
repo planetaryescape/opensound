@@ -1,7 +1,7 @@
-import { Number, Option, Record, pipe } from "effect";
-import { Cookies } from "effect/unstable/http";
+import { Number, Option, Record, pipe } from 'effect'
+import { Cookies } from 'effect/http'
 
-export const COUNT_COOKIE = "count";
+export const COUNT_COOKIE = 'count'
 
 export const readCountCookie = (cookieHeader: string): number =>
   pipe(
@@ -10,4 +10,4 @@ export const readCountCookie = (cookieHeader: string): number =>
     Option.flatMap(Number.parse),
     Option.filter(globalThis.Number.isSafeInteger),
     Option.getOrElse(() => 0),
-  );
+  )

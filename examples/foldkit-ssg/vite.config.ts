@@ -22,12 +22,27 @@ const buildId = process.env['FOLDKIT_BUILD_ID']
 
 export default defineConfig({
   plugins: [
+    {
+      name: 'prerender-directory-redirect',
+      configurePreviewServer(server) {
+        server.middlewares.use((request, response, next) => {
+          const url = new URL(request.url ?? '/', 'http://localhost')
+          if (url.pathname === '/about') {
+            response.writeHead(308, { location: `/about/${url.search}` })
+            response.end()
+            return
+          }
+          next()
+        })
+      },
+    },
     tailwindcss(),
     foldkit({
       buildId,
       devToolsMcpPort: 9988,
       ssr: {
         serverEntry: '/src/entry.server.ts',
+        clientEntry: '/src/entry.ts',
         build: { prerender: true },
       },
     }),

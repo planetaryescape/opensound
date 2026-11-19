@@ -1,6 +1,7 @@
-import { Runtime } from "foldkit";
+import { Runtime } from 'foldkit'
 
-import { Flags, Message, Model, init, update, view } from "./main";
+import { Flags, Message, Model, init, update, view } from './main'
+import './styles.css'
 
 const application = Runtime.makeApplication({
   Model,
@@ -8,14 +9,14 @@ const application = Runtime.makeApplication({
   init,
   update,
   view,
-  container: document.getElementById("root"),
+  container: document.getElementById('root'),
   routing: {
-    onUrlRequest: (request) => Message.ClickedLink({ request }),
-    onUrlChange: (url) => Message.ChangedUrl({ url }),
+    onUrlRequest: request => Message.ClickedLink({ request }),
+    onUrlChange: url => Message.ChangedUrl({ url }),
   },
   devTools: {
     Message,
   },
-});
+})
 
-Runtime.hydrate(application, { buildId: import.meta.env.FOLDKIT_BUILD_ID });
+Runtime.hydrate(application, { buildId: import.meta.env.FOLDKIT_BUILD_ID })

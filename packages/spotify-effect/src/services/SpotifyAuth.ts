@@ -2,7 +2,7 @@ import * as Context from "effect/Context";
 import * as Effect from "effect/Effect";
 import * as Layer from "effect/Layer";
 import * as Schema from "effect/Schema";
-import { HttpClient, HttpClientRequest } from "effect/unstable/http";
+import { HttpClient, HttpClientRequest } from "effect/http";
 import { TOKEN_URL } from "../constants";
 import {
   SpotifyConfigurationError,
@@ -293,9 +293,13 @@ export class SpotifyAuth extends Context.Service<
     ) => Effect.provideService(effect, HttpClient.HttpClient, client);
 
     return {
-      getRefreshableUserTokens: (code: string) => provideClient(auth.getRefreshableUserTokens(code)),
-      getRefreshableUserTokensWithPkce: (options: { readonly clientId: string; readonly code: string; readonly codeVerifier: string }) =>
-        provideClient(auth.getRefreshableUserTokensWithPkce(options)),
+      getRefreshableUserTokens: (code: string) =>
+        provideClient(auth.getRefreshableUserTokens(code)),
+      getRefreshableUserTokensWithPkce: (options: {
+        readonly clientId: string;
+        readonly code: string;
+        readonly codeVerifier: string;
+      }) => provideClient(auth.getRefreshableUserTokensWithPkce(options)),
       getRefreshedAccessToken: (refreshToken: string) =>
         provideClient(auth.getRefreshedAccessToken(refreshToken)),
       getTemporaryAppTokens: () => provideClient(auth.getTemporaryAppTokens()),

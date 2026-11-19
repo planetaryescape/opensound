@@ -9,16 +9,17 @@
     "preview": "astro preview --port 4321 --host 0.0.0.0"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.32.0",
+    "@astrojs/starlight": "^0.43.1",
     "@spotify-effect/browser": "workspace:*",
     "@spotify-effect/core": "workspace:*",
-    "astro": "^5.6.0",
-    "sharp": "^0.33.0"
+    "astro": "^7.4.12",
+    "satteri": "~0.10.5",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
-    "starlight-typedoc": "^0.15.0",
-    "typedoc": "^0.28.14",
-    "typedoc-plugin-markdown": "^4.3.0"
+    "starlight-typedoc": "^0.23.2",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.14.1"
   },
   "trustedDependencies": [
     "sharp"

@@ -1,6 +1,7 @@
 {
   "name": "@examples/foldkit-ssg",
   "version": "0.1.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,24 +13,24 @@
     "lint": "oxlint src"
   },
   "dependencies": {
-    "@effect/platform-browser": "4.0.0-rc.116",
+    "@effect/platform-browser": "4.1.4",
     "@spotify-effect/core": "workspace:*",
-    "effect": "4.0.0-rc.116",
-    "foldkit": "0.163.0"
+    "effect": "4.1.4",
+    "foldkit": "0.170.0"
   },
   "devDependencies": {
-    "@foldkit/devtools": "0.163.0",
-    "@foldkit/devtools-mcp": "0.22.0",
-    "@foldkit/oxlint-plugin": "0.15.0",
-    "@foldkit/vite-plugin": "0.24.0",
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^26.4.0",
-    "happy-dom": "^20.11.13",
-    "oxfmt": "^0.66.0",
-    "oxlint": "^1.80.0",
-    "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2",
-    "vite": "^8.2.2",
-    "vitest": "^5.0.0"
+    "@foldkit/devtools": "0.170.0",
+    "@foldkit/devtools-mcp": "0.26.0",
+    "@foldkit/oxlint-plugin": "0.15.4",
+    "@foldkit/vite-plugin": "0.29.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "happy-dom": "^21.0.4",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
   }
 }

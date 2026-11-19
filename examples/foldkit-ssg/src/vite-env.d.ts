@@ -11,9 +11,9 @@
 // entries refuse it at runtime; typing it as optional would only push that
 // failure past the compiler and into the served page.
 interface ImportMetaEnv {
-  readonly FOLDKIT_BUILD_ID: string;
+  readonly FOLDKIT_BUILD_ID: string
 }
 
 interface ImportMeta {
-  readonly env: ImportMetaEnv;
+  readonly env: ImportMetaEnv
 }

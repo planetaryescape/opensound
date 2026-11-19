@@ -5,6 +5,7 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "types": ["vite/client"],
     "moduleResolution": "bundler",
     "noEmit": true,
     "composite": false

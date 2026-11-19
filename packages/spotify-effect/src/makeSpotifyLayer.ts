@@ -1,5 +1,5 @@
 import * as Layer from "effect/Layer";
-import { FetchHttpClient } from "effect/unstable/http";
+import { FetchHttpClient } from "effect/http";
 import { layer as albumsLayer } from "./api/Albums";
 import { layer as artistsLayer } from "./api/Artists";
 import { layer as browseLayer } from "./api/Browse";

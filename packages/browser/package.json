@@ -29,10 +29,10 @@
   "dependencies": {
     "@spotify-effect/core": "^0.6.7"
   },
-  "peerDependencies": {
-    "effect": "4.0.0-rc.116"
-  },
   "devDependencies": {
-    "effect": "4.0.0-rc.116"
+    "effect": "4.1.4"
+  },
+  "peerDependencies": {
+    "effect": "4.1.4"
   }
 }

@@ -1,32 +1,32 @@
-import { click, expect, given, role, scene, text } from "foldkit/scene";
-import { describe, test } from "vitest";
+import { click, expect, given, role, scene, text } from 'foldkit/scene'
+import { describe, test } from 'vitest'
 
-import { Model, update, view } from "./main";
-import { AppRoute } from "./route";
+import { Model, update, view } from './main'
+import { AppRoute } from './route'
 
 const initialModel = Model.make({
   route: AppRoute.Home(),
   count: 0,
-  track: "Test track — Test artist",
-});
+  track: 'Test track — Test artist',
+})
 
-describe("view", () => {
-  test("renders the statically generated home page", () => {
+describe('view', () => {
+  test('renders the statically generated home page', () => {
     scene(
       { update, view },
       given(initialModel),
-      expect(text("Statically generated home")).toExist(),
-      expect(text("Test track — Test artist")).toExist(),
-      expect(role("button", { name: "Count: 0" })).toExist(),
-    );
-  });
+      expect(text('Statically generated home')).toExist(),
+      expect(text('Test track — Test artist')).toExist(),
+      expect(role('button', { name: 'Count: 0' })).toExist(),
+    )
+  })
 
-  test("clicking the counter increments the count", () => {
+  test('clicking the counter increments the count', () => {
     scene(
       { update, view },
       given(initialModel),
-      click(role("button", { name: "Count: 0" })),
-      expect(role("button", { name: "Count: 1" })).toExist(),
-    );
-  });
-});
+      click(role('button', { name: 'Count: 0' })),
+      expect(role('button', { name: 'Count: 1' })).toExist(),
+    )
+  })
+})
