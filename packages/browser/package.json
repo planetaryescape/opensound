@@ -1,6 +1,6 @@
 {
   "name": "@spotify-effect/browser",
-  "version": "0.6.8",
+  "version": "0.7.0",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -27,7 +27,7 @@
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
   "dependencies": {
-    "@spotify-effect/core": "^0.6.8"
+    "@spotify-effect/core": "^0.7.0"
   },
   "devDependencies": {
     "effect": "4.1.4"
