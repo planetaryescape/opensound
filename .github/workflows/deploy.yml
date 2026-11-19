@@ -49,6 +49,13 @@ jobs:
 
       - run: bun install
 
+      - name: Build workspace SDK dependencies
+        run: >-
+          bun run build
+          --filter=@spotify-effect/core
+          --filter=@spotify-effect/browser
+          --filter=@spotify-effect/otel-node
+
       - name: Remove system-wide Pulumi
         run: sudo rm -f /usr/local/bin/pulumi*
 
