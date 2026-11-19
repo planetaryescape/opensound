@@ -3,7 +3,7 @@
   "extends": ["./node_modules/@foldkit/oxlint-plugin/recommended.json"],
   "plugins": ["typescript"],
   "categories": {
-    "correctness": "off"
+    "correctness": "error"
   },
   "rules": {
     "no-unused-vars": [

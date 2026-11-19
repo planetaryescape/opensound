@@ -29,6 +29,7 @@ const trackForRequest = Effect.gen(function* () {
   }).pipe(Effect.provide(makeSpotifyLayer({ clientId, clientSecret })))
   return `${track.name} — ${track.artists.map(artist => artist.name).join(', ')}`
 }).pipe(
+  Effect.timeout('5 seconds'),
   Effect.catch(() =>
     Effect.succeed(
       'Spotify could not load this track. Check the server credentials and track ID.',
@@ -75,4 +76,5 @@ export const renderPage = (request: Request): Promise<Server.EntryResult> =>
         },
       })
     }),
+    { signal: request.signal },
   )
