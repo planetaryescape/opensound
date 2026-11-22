@@ -24,8 +24,10 @@
     "example:browser": "SPOTIFY_EFFECT_TRACE=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:14318 turbo run dev --filter=@examples/browser",
     "example:solid": "SPOTIFY_EFFECT_TRACE=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:14318 turbo run dev --filter=@examples/solid",
     "example:sveltekit": "SPOTIFY_EFFECT_TRACE=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:14318 turbo run dev --filter=@examples/sveltekit",
-    "ci": "bun run lint && bun run check && bun run typecheck && bun run test && bun run build",
-    "release": "changeset publish",
+    "ci": "bun run lint && bun run check && bun run typecheck && bun run check:scripts && bun run test && bun run build",
+    "check:scripts": "tsc -p scripts/tsconfig.json --noEmit",
+    "release": "bun run scripts/publish-jsr.ts --publish",
+    "release:check": "bun run build && bun run scripts/publish-jsr.ts",
     "version-packages": "changeset version && bun install --lockfile-only --ignore-scripts",
     "prepare": "effect-language-service patch"
   },
@@ -35,8 +37,10 @@
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
     "@effect/language-service": "^0.87.5",
+    "@types/bun": "1.4.4",
     "@types/node": "^26.6.6",
     "effect": "4.1.4",
+    "jsr": "0.14.3",
     "oxfmt": "^0.79.0",
     "oxlint": "^1.94.0",
     "tsup": "^9.0.0",

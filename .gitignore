@@ -7,3 +7,4 @@ dist
 packages/docs/src/content/docs/api/
 .env**
 .sst
+.jsr/

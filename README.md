@@ -15,9 +15,11 @@ This is an **isomorphic** (works in both Node.js and browser environments) Effec
 
 ## Packages
 
-- **`@spotify-effect/core`** — Core SDK with API clients, auth flows, and shared helpers
-- **`@spotify-effect/browser`** — Browser-focused package with PKCE/session helpers and `SpotifyBrowser`
-- **`@spotify-effect/otel-node`** — Node OpenTelemetry integration
+- **`@planetaryescape/opensound`**: Core SDK with API clients, auth flows, and shared helpers
+- **`@planetaryescape/opensound/browser`**: PKCE/session helpers and `SpotifyBrowser`
+- **`@planetaryescape/opensound/otel-node`**: Optional Node OpenTelemetry integration
+
+These are entry points of one JSR package. Internal Bun workspaces retain their existing `@spotify-effect/*` names.
 
 ## Standalone tools
 
@@ -40,8 +42,8 @@ refresh, profile requests, and library requests against the deployed packages.
 `effect` is a required peer dependency. Install the matching stable release with the SDK:
 
 ```sh
-bun add @spotify-effect/core effect@4.1.4
-# or: npm install @spotify-effect/core effect@4.1.4
+bun x jsr add @planetaryescape/opensound --bun
+bun add effect@4.1.4
 ```
 
 If `effect` is not installed, your package manager may report a missing peer dependency and the application may fail to resolve `effect` at runtime.
@@ -49,7 +51,7 @@ If `effect` is not installed, your package manager may report a missing peer dep
 ## Quick Start
 
 ```typescript
-import { makeSpotifyLayer, Tracks } from "@spotify-effect/core";
+import { makeSpotifyLayer, Tracks } from "@planetaryescape/opensound";
 import { Effect } from "effect";
 
 const program = Effect.gen(function* () {
