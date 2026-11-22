@@ -22,6 +22,8 @@ Use these exact values:
 
 The workflow uses a GitHub-hosted runner and requests `id-token: write`. Node 24 supplies the npm CLI; trusted publishing requires npm 11.5.1 or newer. The Changesets action receives no long-lived npm token. Each package declares the matching GitHub repository for npm's identity check and provenance.
 
+Do not set `registry-url` on `setup-node` for this tokenless workflow. Its generated token-based npm configuration can prevent npm from exchanging the GitHub OIDC identity for publishing authorization.
+
 New trusted publishers must complete their first successful publish within two days or be recreated. Configure all three before dispatching the workflow on `main`, since publishing can partially succeed.
 
 After the workflow changes are merged and the npm settings are saved, run:
