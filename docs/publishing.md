@@ -41,7 +41,7 @@ Use exact JSR compatibility aliases in `package.json`:
 ```json
 {
   "dependencies": {
-    "@planetaryescape/opensound": "npm:@jsr/planetaryescape__opensound@0.7.0"
+    "@planetaryescape/opensound": "npm:@jsr/planetaryescape__opensound@0.7.1"
   }
 }
 ```
@@ -49,5 +49,7 @@ Use exact JSR compatibility aliases in `package.json`:
 Then run `bun install` and import from those names. These packages are served by JSR, not the npm registry, despite the `npm:` alias syntax used by Bun's package manager.
 
 Import browser helpers from `@planetaryescape/opensound/browser` and optional Node telemetry from `@planetaryescape/opensound/otel-node`. Preserve a single Effect peer and verify authentication, profile decoding and playback behavior before shipping consumer changes. Do not remove consumer patches unless the JSR version contains their fixes.
+
+Use `0.7.1` or newer. The initial `0.7.0` artifact used `.mjs`/`.d.mts` filenames; JSR's npm compatibility output rewrote sibling declaration imports to `.js`, which broke browser-service type resolution. The corrected artifact uses ESM `.js` files with a `type: module` package and matching `.d.ts` declarations.
 
 References: [JSR publishing](https://jsr.io/docs/publishing-packages), [Bun-compatible installation](https://jsr.io/docs/npm-compatibility).

@@ -4,7 +4,7 @@ description: Paginate through large Spotify result sets with paginateAll, pagina
 head: []
 ---
 
-`@spotify-effect/core` provides two pagination strategies: offset-based (for most endpoints) and cursor-based (for recently played tracks and follow lists).
+`@planetaryescape/opensound` provides two pagination strategies: offset-based (for most endpoints) and cursor-based (for recently played tracks and follow lists).
 
 ## Offset Pagination
 
@@ -16,7 +16,7 @@ Fetch all items from a paginated endpoint:
 
 ```ts
 import { Effect } from "effect";
-import { Library, paginateAll } from "@spotify-effect/core";
+import { Library, paginateAll } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const library = yield* Library;
@@ -37,7 +37,7 @@ For streaming large result sets without loading everything into memory:
 
 ```ts
 import { Effect, Stream } from "effect";
-import { Library, paginateStream } from "@spotify-effect/core";
+import { Library, paginateStream } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const library = yield* Library;
@@ -63,7 +63,7 @@ Cursor-based pagination is used for:
 
 ```ts
 import { Effect } from "effect";
-import { Player, cursorPaginateAll } from "@spotify-effect/core";
+import { Player, cursorPaginateAll } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const player = yield* Player;
@@ -82,7 +82,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect, Stream } from "effect";
-import { Player, cursorPaginateStream } from "@spotify-effect/core";
+import { Player, cursorPaginateStream } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const player = yield* Player;
@@ -104,7 +104,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Playlists, paginateAll } from "@spotify-effect/core";
+import { Playlists, paginateAll } from "@planetaryescape/opensound";
 
 const getAllPlaylists = Effect.gen(function* () {
   const playlists = yield* Playlists;
@@ -117,7 +117,7 @@ const getAllPlaylists = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Search } from "@spotify-effect/core";
+import { Search } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const search = yield* Search;
@@ -137,7 +137,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Artists, Albums, paginateAll } from "@spotify-effect/core";
+import { Artists, Albums, paginateAll } from "@planetaryescape/opensound";
 
 const getAllArtistAlbums = (artistId: string) =>
   Effect.gen(function* () {
@@ -166,7 +166,7 @@ const getAllArtistAlbums = (artistId: string) =>
 
 ```ts
 import { Effect, Stream } from "effect";
-import { Library, Library as LibraryService, paginateStream } from "@spotify-effect/core";
+import { Library, Library as LibraryService, paginateStream } from "@planetaryescape/opensound";
 
 const processSavedTracks = () =>
   Effect.gen(function* () {
@@ -202,8 +202,8 @@ const processSavedTracks = () =>
 
 ```ts
 import { Effect, Exit } from "effect";
-import { Library, paginateAll } from "@spotify-effect/core";
-import { SpotifyRateLimitError, isRetryableError } from "@spotify-effect/core";
+import { Library, paginateAll } from "@planetaryescape/opensound";
+import { SpotifyRateLimitError, isRetryableError } from "@planetaryescape/opensound";
 
 const getAllSavedTracks = (maxRetries = 3) =>
   Effect.gen(function* () {

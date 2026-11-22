@@ -130,7 +130,7 @@
     },
     "packages/browser": {
       "name": "@spotify-effect/browser",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "dependencies": {
         "@spotify-effect/core": "^0.7.0",
       },
@@ -175,7 +175,7 @@
     },
     "packages/otel-node": {
       "name": "@spotify-effect/otel-node",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "dependencies": {
         "@effect/opentelemetry": "4.1.4",
         "@opentelemetry/exporter-trace-otlp-http": "^0.223.2",
@@ -191,7 +191,7 @@
     },
     "packages/spotify-effect": {
       "name": "@spotify-effect/core",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "devDependencies": {
         "effect": "4.1.4",
       },

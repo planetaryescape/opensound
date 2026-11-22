@@ -4,7 +4,7 @@ description: Install spotify-effect, configure your credentials, and make your f
 head: []
 ---
 
-import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
+import { Steps } from "@astrojs/starlight/components";
 
 `spotify-effect` is an [Effect](https://effect.website)-native Spotify Web API client. This guide walks you through installation, credential setup, and running your first API call.
 
@@ -15,11 +15,12 @@ import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
 
 ## Installation
 
-<Tabs>
-  <TabItem label="bun">```sh bun add @spotify-effect/core effect@4.1.4 ```</TabItem>
-  <TabItem label="npm">```sh npm install @spotify-effect/core effect@4.1.4 ```</TabItem>
-  <TabItem label="pnpm">```sh pnpm add @spotify-effect/core effect@4.1.4 ```</TabItem>
-</Tabs>
+```sh
+bun x jsr add @planetaryescape/opensound --bun
+bun add effect@4.1.4
+```
+
+JSR is the registry. Bun remains the package manager and runtime. Browser helpers are exported from `@planetaryescape/opensound/browser`, and optional Node telemetry from `@planetaryescape/opensound/otel-node`.
 
 `effect` is a required peer dependency. Install the matching `4.1.4` version explicitly; without it, your package manager may warn or the application may fail to resolve `effect` at runtime.
 
@@ -28,7 +29,7 @@ import { Tabs, TabItem, Steps } from "@astrojs/starlight/components";
 `spotify-effect` uses `SpotifyConfig` — an Effect service — to supply credentials. The easiest way to provide it is via `makeSpotifyLayer`, which accepts a `SpotifyLayerOptions` object.
 
 ```ts
-import { makeSpotifyLayer } from "@spotify-effect/core";
+import { makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -47,14 +48,14 @@ The layer handles token refresh automatically. You never manage access tokens ma
    Each Spotify resource group is a separate Effect service. To search for tracks, use `Search`:
 
    ```ts
-   import { Search } from "@spotify-effect/core";
+   import { Search } from "@planetaryescape/opensound";
    ```
 
 2. **Build an Effect program**
 
    ```ts
    import { Effect } from "effect";
-   import { Search, makeSpotifyLayer } from "@spotify-effect/core";
+   import { Search, makeSpotifyLayer } from "@planetaryescape/opensound";
 
    const program = Effect.gen(function* () {
      const search = yield* Search;
@@ -85,7 +86,7 @@ The layer handles token refresh automatically. You never manage access tokens ma
 ```ts
 import { Effect } from "effect";
 import { NodeRuntime } from "@effect/platform-node";
-import { Search, makeSpotifyLayer } from "@spotify-effect/core";
+import { Search, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -111,7 +112,7 @@ program.pipe(Effect.provide(SpotifyLayer), NodeRuntime.runMain);
 `makeSpotifyLayer` accepts a `retry` option so you can tune retry behavior per client instance.
 
 ```ts
-import { makeSpotifyLayer } from "@spotify-effect/core";
+import { makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -145,6 +146,6 @@ const SpotifyLayer = makeSpotifyLayer({
 ## Next steps
 
 - [Authentication](/guides/authentication) — understand token strategies (client credentials vs. authorization code)
-- [Browser (PKCE)](/guides/browser) — use `@spotify-effect/browser` for SPA OAuth flows
+- [Browser (PKCE)](/guides/browser): use `@planetaryescape/opensound/browser` for SPA OAuth flows
 - [Error Handling](/guides/error-handling) — handle `SpotifyHttpError`, `SpotifyRateLimitError`, and more
 - [Pagination](/guides/pagination) — paginate through large result sets with `paginateAll` and streams

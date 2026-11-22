@@ -12,7 +12,7 @@ The `Albums` service fetches album information from Spotify's catalog.
 
 ```ts
 import { Effect } from "effect";
-import { Albums, makeSpotifyLayer } from "@spotify-effect/core";
+import { Albums, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const albums = yield* Albums;
@@ -108,7 +108,7 @@ const searchAndGetAlbums = (query: string) =>
 ### Get all tracks from a double album
 
 ```ts
-import { paginateAll } from "@spotify-effect/core";
+import { paginateAll } from "@planetaryescape/opensound";
 
 const getAllAlbumTracks = (albumId: string) =>
   Effect.gen(function* () {

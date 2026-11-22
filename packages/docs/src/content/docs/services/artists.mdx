@@ -12,7 +12,7 @@ The `Artists` service fetches artist information from Spotify's catalog.
 
 ```ts
 import { Effect } from "effect";
-import { Artists, makeSpotifyLayer } from "@spotify-effect/core";
+import { Artists, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const artists = yield* Artists;
@@ -116,7 +116,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Artists, Albums, paginateAll } from "@spotify-effect/core";
+import { Artists, Albums, paginateAll } from "@planetaryescape/opensound";
 
 const getFullDiscography = (artistId: string) =>
   Effect.gen(function* () {
@@ -149,8 +149,8 @@ const getFullDiscography = (artistId: string) =>
 
 ```ts
 import { Effect } from "effect";
-import { Artists } from "@spotify-effect/core";
-import { paginateAll } from "@spotify-effect/core";
+import { Artists } from "@planetaryescape/opensound";
+import { paginateAll } from "@planetaryescape/opensound";
 
 const getArtistsByGenre = (genre: string) =>
   Effect.gen(function* () {

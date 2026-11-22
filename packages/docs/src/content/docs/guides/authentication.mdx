@@ -15,7 +15,7 @@ Use this for server-to-server requests where you don't need user-specific data (
 ```ts
 import { Effect } from "effect";
 import { NodeRuntime } from "@effect/platform-node";
-import { Browse, makeSpotifyLayer } from "@spotify-effect/core";
+import { Browse, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -56,7 +56,7 @@ Use this when you need to access or modify user-specific data (playlists, saved 
 ### Step 1: Generate authorization URL
 
 ```ts
-import { getAuthorizationUrl } from "@spotify-effect/core";
+import { getAuthorizationUrl } from "@planetaryescape/opensound";
 
 const authUrl = getAuthorizationUrl(
   process.env.SPOTIFY_CLIENT_ID!,
@@ -79,7 +79,7 @@ const authUrl = getAuthorizationUrl(
 
 ```ts
 import { Effect } from "effect";
-import { SpotifyAuth, makeSpotifyLayer } from "@spotify-effect/core";
+import { SpotifyAuth, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -120,7 +120,7 @@ The layer automatically refreshes tokens when they expire.
 
 PKCE (Proof Key for Code Exchange) is for browser-based applications where you can't safely store a client secret.
 
-See the [Browser (PKCE) guide](/guides/browser) for detailed instructions using `@spotify-effect/browser`.
+See the [Browser (PKCE) guide](/guides/browser) for detailed instructions using `@planetaryescape/opensound/browser`.
 
 ## Scopes
 
@@ -154,7 +154,7 @@ Store tokens securely:
 - **Server-side**: Use encrypted cookies, secure session storage, or a database
 - **Browser-side**: Use `sessionStorage` for session tokens, `localStorage` with encryption for refresh tokens
 
-The `@spotify-effect/browser` package handles token storage automatically using the Web Storage API.
+The `@planetaryescape/opensound/browser` entry point handles token storage automatically using the Web Storage API.
 
 ## Next steps
 

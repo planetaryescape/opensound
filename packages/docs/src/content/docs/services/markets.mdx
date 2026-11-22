@@ -10,7 +10,7 @@ The `Markets` service provides a list of markets where Spotify content is availa
 
 ```ts
 import { Effect } from "effect";
-import { Markets, makeSpotifyLayer } from "@spotify-effect/core";
+import { Markets, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const markets = yield* Markets;
@@ -45,7 +45,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Markets, Users } from "@spotify-effect/core";
+import { Markets, Users } from "@planetaryescape/opensound";
 
 const getUserCountry = () =>
   Effect.gen(function* () {
@@ -66,7 +66,7 @@ const getLocalizedContent = <T>(fetch: (market: string) => Effect.Effect<T>) =>
 
 ```ts
 import { Effect } from "effect";
-import { Markets, Albums } from "@spotify-effect/core";
+import { Markets, Albums } from "@planetaryescape/opensound";
 
 const checkAlbumAvailability = (albumId: string) =>
   Effect.gen(function* () {

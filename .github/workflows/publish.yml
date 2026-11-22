@@ -39,3 +39,6 @@ jobs:
 
       - name: Publish to JSR
         run: bun run release
+
+      - name: Verify published Bun consumer
+        run: bun run release:verify
