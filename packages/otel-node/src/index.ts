@@ -1,4 +1,5 @@
 import * as NodeSdk from "@effect/opentelemetry/NodeSdk";
+import "@opentelemetry/sdk-trace-node";
 import type * as Resource from "@effect/opentelemetry/Resource";
 import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-http";
 import {
