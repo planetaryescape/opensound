@@ -2,6 +2,11 @@
   "name": "@spotify-effect/browser",
   "version": "0.7.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planetaryescape/opensound.git",
+    "directory": "packages/browser"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
