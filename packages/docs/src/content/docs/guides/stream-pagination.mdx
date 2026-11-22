@@ -4,7 +4,7 @@ description: Deliver paginated Spotify data to clients in real-time using Effect
 head: []
 ---
 
-`@spotify-effect/core` provides stream pagination utilities that integrate seamlessly with Effect's `Stream` API. Combined with [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events), you can deliver paginated data to clients incrementally—tracks and statistics render as each page arrives from Spotify.
+`@planetaryescape/opensound` provides stream pagination utilities for Effect's `Stream` API. Combined with [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events), clients can receive tracks and statistics as each Spotify page arrives.
 
 ## Why Use Effect Streams?
 
@@ -25,7 +25,7 @@ The `paginateStream` function creates a lazy stream that fetches pages on demand
 ```ts
 import * as Effect from "effect";
 import * as Stream from "effect/Stream";
-import { Library, paginateStream } from "@spotify-effect/core";
+import { Library, paginateStream } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const library = yield* Library;
@@ -54,7 +54,7 @@ SSE provides a simple mechanism to push stream data to clients over HTTP. The se
 ```ts
 import * as Effect from "effect";
 import * as Stream from "effect/Stream";
-import { Library, paginateStream } from "@spotify-effect/core";
+import { Library, paginateStream } from "@planetaryescape/opensound";
 
 const SPOTIFY_MAX_PAGE_SIZE = 50;
 

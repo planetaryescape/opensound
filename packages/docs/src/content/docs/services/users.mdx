@@ -12,7 +12,7 @@ The `Users` service retrieves user profile information.
 
 ```ts
 import { Effect } from "effect";
-import { Users, makeSpotifyLayer } from "@spotify-effect/core";
+import { Users, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const users = yield* Users;
@@ -120,7 +120,7 @@ const compareUsers = (userId1: string, userId2: string) =>
 
 ```ts
 import { Effect } from "effect";
-import { Users, Playlists } from "@spotify-effect/core";
+import { Users, Playlists } from "@planetaryescape/opensound";
 
 const getUserPlaylists = (userId: string) =>
   Effect.gen(function* () {

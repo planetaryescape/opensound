@@ -12,7 +12,7 @@ The `Personalization` service retrieves a user's top artists and tracks based on
 
 ```ts
 import { Effect } from "effect";
-import { Personalization, makeSpotifyLayer } from "@spotify-effect/core";
+import { Personalization, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const personalization = yield* Personalization;
@@ -61,7 +61,7 @@ const program = Effect.gen(function* () {
 
 ```ts
 import { Effect } from "effect";
-import { Personalization, Playlists, Users } from "@spotify-effect/core";
+import { Personalization, Playlists, Users } from "@planetaryescape/opensound";
 
 const generateTopTracksPlaylist = (userId: string, name: string) =>
   Effect.gen(function* () {
@@ -154,7 +154,7 @@ const analyzeTopGenres = () =>
 ### Discover music similar to top artists
 
 ```ts
-import { Artists, Browse, Personalization } from "@spotify-effect/core";
+import { Artists, Browse, Personalization } from "@planetaryescape/opensound";
 
 const discoverFromTopArtists = () =>
   Effect.gen(function* () {
@@ -184,7 +184,7 @@ const discoverFromTopArtists = () =>
 ## Pagination
 
 ```ts
-import { paginateAll } from "@spotify-effect/core";
+import { paginateAll } from "@planetaryescape/opensound";
 
 const getAllTopArtists = (timeRange: "short_term" | "medium_term" | "long_term") =>
   Effect.gen(function* () {

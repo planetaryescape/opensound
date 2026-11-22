@@ -15,7 +15,7 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 HTTP-level errors from the Spotify API when the failure is not classified more specifically.
 
 ```ts
-import { SpotifyHttpError } from "@spotify-effect/core";
+import { SpotifyHttpError } from "@planetaryescape/opensound";
 
 if (error._tag === "SpotifyHttpError") {
   console.log(error.status); // HTTP status code (e.g., 404)
@@ -37,7 +37,7 @@ Common causes:
 Spotify's rate limit was exceeded.
 
 ```ts
-import { SpotifyRateLimitError } from "@spotify-effect/core";
+import { SpotifyRateLimitError } from "@planetaryescape/opensound";
 
 if (error._tag === "SpotifyRateLimitError") {
   console.log(error.retryAfterSeconds); // Seconds to wait
@@ -50,7 +50,7 @@ if (error._tag === "SpotifyRateLimitError") {
 Failed to decode the API response (schema mismatch).
 
 ```ts
-import { SpotifyParseError } from "@spotify-effect/core";
+import { SpotifyParseError } from "@planetaryescape/opensound";
 
 if (error._tag === "SpotifyParseError") {
   console.log(error.cause); // The decoding error
@@ -63,7 +63,7 @@ if (error._tag === "SpotifyParseError") {
 Misconfiguration (missing credentials, invalid parameters).
 
 ```ts
-import { SpotifyConfigurationError } from "@spotify-effect/core";
+import { SpotifyConfigurationError } from "@planetaryescape/opensound";
 
 if (error._tag === "SpotifyConfigurationError") {
   console.log(error.message); // What went wrong
@@ -75,7 +75,7 @@ if (error._tag === "SpotifyConfigurationError") {
 Network-level failures (connection issues, DNS errors).
 
 ```ts
-import { SpotifyTransportError } from "@spotify-effect/core";
+import { SpotifyTransportError } from "@planetaryescape/opensound";
 
 if (error._tag === "SpotifyTransportError") {
   console.log(error.cause); // The underlying error
@@ -89,7 +89,7 @@ if (error._tag === "SpotifyTransportError") {
 
 ```ts
 import { Effect } from "effect";
-import { SpotifyHttpError, SpotifyRateLimitError } from "@spotify-effect/core";
+import { SpotifyHttpError, SpotifyRateLimitError } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const browse = yield* Browse;
@@ -158,7 +158,7 @@ if (Exit.isSuccess(exit)) {
 Use `isRetryableError` to determine if an error should be retried:
 
 ```ts
-import { isRetryableError } from "@spotify-effect/core";
+import { isRetryableError } from "@planetaryescape/opensound";
 
 if (isRetryableError(error)) {
   // Retry the request
@@ -174,7 +174,7 @@ if (isRetryableError(error)) {
 You can also configure the shared request layer's built-in retry behavior when constructing the Spotify layer:
 
 ```ts
-import { makeSpotifyLayer } from "@spotify-effect/core";
+import { makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const SpotifyLayer = makeSpotifyLayer({
   clientId: process.env.SPOTIFY_CLIENT_ID!,
@@ -193,7 +193,7 @@ Set `maxRetries: 0` to disable built-in retries and handle retry policy entirely
 
 ```ts
 import { Effect } from "effect";
-import { SpotifyRateLimitError, isRetryableError } from "@spotify-effect/core";
+import { SpotifyRateLimitError, isRetryableError } from "@planetaryescape/opensound";
 
 const withRetry = <A, E, R>(
   effect: Effect.Effect<A, E, R>,

@@ -10,7 +10,7 @@ The `Search` service lets you search Spotify's catalog. You can search across on
 
 ```ts
 import { Effect } from "effect";
-import { Search, makeSpotifyLayer } from "@spotify-effect/core";
+import { Search, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const search = yield* Search;

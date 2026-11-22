@@ -12,7 +12,7 @@ The `Follow` service manages relationships with artists, users, and playlists.
 
 ```ts
 import { Effect } from "effect";
-import { Follow, makeSpotifyLayer } from "@spotify-effect/core";
+import { Follow, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const follow = yield* Follow;
@@ -123,7 +123,7 @@ const program = Effect.gen(function* () {
 ### Get all followed artists
 
 ```ts
-import { cursorPaginateAll } from "@spotify-effect/core";
+import { cursorPaginateAll } from "@planetaryescape/opensound";
 
 const getAllFollowedArtists = () =>
   Effect.gen(function* () {
@@ -139,7 +139,7 @@ const getAllFollowedArtists = () =>
 
 ```ts
 import { Effect } from "effect";
-import { Follow, Artists, Playlists, Users, cursorPaginateAll } from "@spotify-effect/core";
+import { Follow, Artists, Playlists, Users, cursorPaginateAll } from "@planetaryescape/opensound";
 
 const syncFollowedArtists = (playlistName: string) =>
   Effect.gen(function* () {

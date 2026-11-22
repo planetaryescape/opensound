@@ -14,7 +14,7 @@ The `Player` service controls Spotify playback. Requires the `user-read-playback
 
 ```ts
 import { Effect } from "effect";
-import { Player, makeSpotifyLayer } from "@spotify-effect/core";
+import { Player, makeSpotifyLayer } from "@planetaryescape/opensound";
 
 const program = Effect.gen(function* () {
   const player = yield* Player;
@@ -173,7 +173,7 @@ yield * player.setShuffle(false); // Disable shuffle
 ### Set repeat mode
 
 ```ts
-import type { RepeatState } from "@spotify-effect/core";
+import type { RepeatState } from "@planetaryescape/opensound";
 
 yield * player.setRepeat("track"); // Repeat current track
 yield * player.setRepeat("context"); // Repeat context

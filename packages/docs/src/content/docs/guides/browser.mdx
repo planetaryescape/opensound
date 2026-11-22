@@ -1,30 +1,26 @@
 ---
 title: Browser (PKCE)
-description: Use @spotify-effect/browser for OAuth PKCE flows in SPAs and browser environments.
+description: Use @planetaryescape/opensound/browser for OAuth PKCE flows in SPAs and browser environments.
 head: []
 ---
 
-import { Steps, TabItem, Tabs } from "@astrojs/starlight/components";
+import { Steps } from "@astrojs/starlight/components";
 
-`@spotify-effect/browser` provides OAuth PKCE flow support for browser-based applications. PKCE eliminates the need for a client secret, making it safe for frontend-only applications.
+`@planetaryescape/opensound/browser` provides OAuth PKCE flow support for browser-based applications. PKCE eliminates the need for a client secret, making it safe for frontend-only applications.
 
 ## Installation
 
-<Tabs>
-  <TabItem label="bun">
-    ```sh bun add @spotify-effect/browser @spotify-effect/core effect@4.1.4 ```
-  </TabItem>
-  <TabItem label="npm">
-    ```sh npm install @spotify-effect/browser @spotify-effect/core effect@4.1.4 ```
-  </TabItem>
-</Tabs>
+```sh
+bun x jsr add @planetaryescape/opensound --bun
+bun add effect@4.1.4
+```
 
 ## Setup
 
 Create a `SpotifyBrowser` instance with the required options:
 
 ```ts
-import { SpotifyBrowser } from "@spotify-effect/browser";
+import { SpotifyBrowser } from "@planetaryescape/opensound/browser";
 import * as Layer from "effect/Layer";
 
 const spotify = SpotifyBrowser.layer({
@@ -50,7 +46,7 @@ export const SpotifyLayer = spotify;
 
    ```ts
    import { Effect, Layer } from "effect";
-   import { SpotifyBrowser } from "@spotify-effect/browser";
+   import { SpotifyBrowser } from "@planetaryescape/opensound/browser";
 
    const program = Effect.gen(function* () {
      const spotify = yield* SpotifyBrowser;
@@ -72,7 +68,7 @@ export const SpotifyLayer = spotify;
 
    ```ts
    import { Effect } from "effect";
-   import { SpotifyBrowser, readAuthorizationCallback } from "@spotify-effect/browser";
+   import { SpotifyBrowser, readAuthorizationCallback } from "@planetaryescape/opensound/browser";
 
    const callback = readAuthorizationCallback(new URL(window.location.href));
 
@@ -138,7 +134,7 @@ spotify.auth.logout();
 
 ## Available Services
 
-The browser package provides all the same services as `@spotify-effect/core`:
+The browser entry point provides all the same services as `@planetaryescape/opensound`:
 
 - `albums` — Get albums, tracks, and album metadata
 - `artists` — Get artists, albums, and related artists
@@ -157,7 +153,7 @@ The browser package provides all the same services as `@spotify-effect/core`:
 
 ```ts
 import { Effect } from "effect";
-import { SpotifyBrowser } from "@spotify-effect/browser";
+import { SpotifyBrowser } from "@planetaryescape/opensound/browser";
 
 const program = Effect.gen(function* () {
   const spotify = yield* SpotifyBrowser;
