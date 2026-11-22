@@ -41,7 +41,7 @@ Use exact JSR compatibility aliases in `package.json`:
 ```json
 {
   "dependencies": {
-    "@planetaryescape/opensound": "npm:@jsr/planetaryescape__opensound@0.7.1"
+    "@planetaryescape/opensound": "npm:@jsr/planetaryescape__opensound@0.7.2"
   }
 }
 ```
@@ -50,6 +50,6 @@ Then run `bun install` and import from those names. These packages are served by
 
 Import browser helpers from `@planetaryescape/opensound/browser` and optional Node telemetry from `@planetaryescape/opensound/otel-node`. Preserve a single Effect peer and verify authentication, profile decoding and playback behavior before shipping consumer changes. Do not remove consumer patches unless the JSR version contains their fixes.
 
-Use `0.7.1` or newer. The initial `0.7.0` artifact used `.mjs`/`.d.mts` filenames; JSR's npm compatibility output rewrote sibling declaration imports to `.js`, which broke browser-service type resolution. The corrected artifact uses ESM `.js` files with a `type: module` package and matching `.d.ts` declarations.
+Use `0.7.2` or newer. The initial `0.7.0` artifact used `.mjs`/`.d.mts` filenames; JSR's npm compatibility output rewrote sibling declaration imports to `.js`, which broke browser-service type resolution. Version `0.7.1` corrected that artifact layout. The published-consumer smoke then exposed Node telemetry's undeclared transitive peer: JSR only retains dependencies reached by the module graph, so the existing `package.json` dependency alone did not retain `@opentelemetry/sdk-trace-node`. Version `0.7.2` imports that dependency explicitly and verifies all three entry points in a fresh Bun consumer.
 
 References: [JSR publishing](https://jsr.io/docs/publishing-packages), [Bun-compatible installation](https://jsr.io/docs/npm-compatibility).
