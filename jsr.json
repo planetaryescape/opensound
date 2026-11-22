@@ -1,0 +1,13 @@
+{
+  "name": "@planetaryescape/opensound",
+  "version": "0.7.0",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.mjs",
+    "./browser": "./browser.mjs",
+    "./otel-node": "./otel-node.mjs"
+  },
+  "publish": {
+    "include": ["package.json", "jsr.json", "*.mjs", "*.d.mts"]
+  }
+}

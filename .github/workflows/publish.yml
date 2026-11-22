@@ -14,8 +14,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
       id-token: write
     steps:
       - name: Checkout Repo
@@ -35,12 +34,8 @@ jobs:
       - name: Verify Workspace
         run: bun run ci
 
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          version: bun run version-packages
-          publish: bun run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: "true"
+      - name: Verify JSR package
+        run: bun run scripts/publish-jsr.ts
+
+      - name: Publish to JSR
+        run: bun run release
