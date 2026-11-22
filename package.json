@@ -28,6 +28,7 @@
     "check:scripts": "tsc -p scripts/tsconfig.json --noEmit",
     "release": "bun run scripts/publish-jsr.ts --publish",
     "release:check": "bun run build && bun run scripts/publish-jsr.ts",
+    "release:verify": "bun run scripts/verify-jsr.ts",
     "version-packages": "changeset version && bun install --lockfile-only --ignore-scripts",
     "prepare": "effect-language-service patch"
   },

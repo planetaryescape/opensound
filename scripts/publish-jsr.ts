@@ -46,8 +46,8 @@ const dependencies = Object.fromEntries(
 const peers = packages[0]?.pkg.peerDependencies ?? {};
 const replaceDependencies = (text: string) => {
   for (const { pkg, entry } of packages) {
-    text = text.replaceAll(`"${pkg.name}"`, `"./${entry}.mjs"`);
-    text = text.replaceAll(`'${pkg.name}'`, `'./${entry}.mjs'`);
+    text = text.replaceAll(`"${pkg.name}"`, `"./${entry}.js"`);
+    text = text.replaceAll(`'${pkg.name}'`, `'./${entry}.js'`);
   }
   for (const [name, version] of Object.entries({ ...dependencies, ...peers })) {
     for (const quote of ['"', "'"]) {
@@ -63,10 +63,10 @@ for (const { entry, path } of packages) {
   const javascript = replaceDependencies(await Bun.file(join(path, "dist/index.mjs")).text());
   const declarations = replaceDependencies(await Bun.file(join(path, "dist/index.d.mts")).text());
   await Bun.write(
-    join(destination, `${entry}.mjs`),
-    `// @ts-self-types="./${entry}.d.mts"\n${javascript}`,
+    join(destination, `${entry}.js`),
+    `// @ts-self-types="./${entry}.d.ts"\n${javascript}`,
   );
-  await Bun.write(join(destination, `${entry}.d.mts`), declarations);
+  await Bun.write(join(destination, `${entry}.d.ts`), declarations);
 }
 await Bun.write(join(destination, "jsr.json"), JSON.stringify(jsr, null, 2));
 await Bun.write(
